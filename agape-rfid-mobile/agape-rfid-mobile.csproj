@@ -45,6 +45,9 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CompactNetMercFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="CompactNetTupleEngine, Version=1.0.3822.24289, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,6 +84,7 @@
     <Content Include="lib\CompactNetMercFramework.dll" />
     <Content Include="lib\CompactNetTupleEngine.dll" />
     <Content Include="lib\log4net.dll" />
+    <Content Include="mercConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

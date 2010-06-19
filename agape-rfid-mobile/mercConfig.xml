@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <framework-node port="6666"/>
+  <mercs>
+    <merc name="Frame" class="Form1, agape_rfid_mobile" startmsg="init"/>
+  </mercs>
+</config>
