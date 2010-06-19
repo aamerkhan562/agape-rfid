@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "agape-rfid-desktop", "agape-rfid-desktop\agape-rfid-desktop.csproj", "{7ABAEF6F-C7D8-48F1-B5BC-F42A871D598A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "agape-rfid-mobile", "agape-rfid-mobile\agape-rfid-mobile.csproj", "{052E51C2-7BE1-42A3-9210-41DCB8805A82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,12 @@ Global
 		{7ABAEF6F-C7D8-48F1-B5BC-F42A871D598A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ABAEF6F-C7D8-48F1-B5BC-F42A871D598A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ABAEF6F-C7D8-48F1-B5BC-F42A871D598A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{052E51C2-7BE1-42A3-9210-41DCB8805A82}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
