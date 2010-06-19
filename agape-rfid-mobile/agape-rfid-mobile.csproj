@@ -77,6 +77,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\CompactNetMercFramework.dll" />
+    <Content Include="lib\CompactNetTupleEngine.dll" />
+    <Content Include="lib\log4net.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
