@@ -31,10 +31,12 @@ namespace agape_rfid_mobile
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.cercaBtn = new System.Windows.Forms.Button();
             this.orderNumTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.inputPanel1 = new Microsoft.WindowsCE.Forms.InputPanel(this.components);
             this.SuspendLayout();
             // 
             // cercaBtn
@@ -45,7 +47,7 @@ namespace agape_rfid_mobile
             this.cercaBtn.Size = new System.Drawing.Size(72, 20);
             this.cercaBtn.TabIndex = 0;
             this.cercaBtn.Text = "Cerca";
-            this.cercaBtn.Click += new System.EventHandler(this.button1_Click);
+            this.cercaBtn.Click += new System.EventHandler(this.cercaBtn_Click);
             // 
             // orderNumTb
             // 
@@ -84,6 +86,7 @@ namespace agape_rfid_mobile
         private System.Windows.Forms.Button cercaBtn;
         private System.Windows.Forms.TextBox orderNumTb;
         private System.Windows.Forms.Label label1;
+        private Microsoft.WindowsCE.Forms.InputPanel inputPanel1;
     }
 }
 
