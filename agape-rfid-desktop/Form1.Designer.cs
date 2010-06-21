@@ -42,6 +42,8 @@ namespace agape_rfid_desktop
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.finalCustomerTxt = new System.Windows.Forms.TextBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.agapeTaggedItemsDS = new agape_rfid_desktop.agapeTaggedItemsDS();
             this.label7 = new System.Windows.Forms.Label();
             this.vendorTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +56,7 @@ namespace agape_rfid_desktop
             this.codartTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             this.detailsBtn = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -76,16 +79,18 @@ namespace agape_rfid_desktop
             this.label17 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.printBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.enRbtn = new System.Windows.Forms.RadioButton();
+            this.itRbtn = new System.Windows.Forms.RadioButton();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.itRbtn = new System.Windows.Forms.RadioButton();
-            this.enRbtn = new System.Windows.Forms.RadioButton();
-            this.printBtn = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.taggedItemsViewTableAdapter = new agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.TaggedItemsViewTableAdapter();
             this.groupBox1.SuspendLayout();
             this.tabPane.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agapeTaggedItemsDS)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -94,7 +99,6 @@ namespace agape_rfid_desktop
             ((System.ComponentModel.ISupportInitialize)(this.pictureEn)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -146,6 +150,7 @@ namespace agape_rfid_desktop
             this.tabPane.Size = new System.Drawing.Size(547, 339);
             this.tabPane.TabIndex = 1;
             this.tabPane.Visible = false;
+            this.tabPane.SelectedIndexChanged += new System.EventHandler(this.tabPane_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -184,6 +189,7 @@ namespace agape_rfid_desktop
             // 
             // saveBtn
             // 
+            this.saveBtn.Enabled = false;
             this.saveBtn.Location = new System.Drawing.Point(435, 284);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(96, 23);
@@ -221,10 +227,24 @@ namespace agape_rfid_desktop
             // 
             // finalCustomerTxt
             // 
+            this.finalCustomerTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "AnagraficaCliente", true));
             this.finalCustomerTxt.Location = new System.Drawing.Point(158, 242);
             this.finalCustomerTxt.Name = "finalCustomerTxt";
             this.finalCustomerTxt.Size = new System.Drawing.Size(142, 20);
             this.finalCustomerTxt.TabIndex = 11;
+            this.finalCustomerTxt.TextChanged += new System.EventHandler(this.recordModified);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "TaggedItemsView";
+            this.bindingSource1.DataSource = this.agapeTaggedItemsDS;
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.bindingSource1.DataMemberChanged += new System.EventHandler(this.bindingSource1_DataMemberChanged);
+            // 
+            // agapeTaggedItemsDS
+            // 
+            this.agapeTaggedItemsDS.DataSetName = "agapeTaggedItemsDS";
+            this.agapeTaggedItemsDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -237,10 +257,12 @@ namespace agape_rfid_desktop
             // 
             // vendorTxt
             // 
+            this.vendorTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "AnagraficaRivenditore", true));
             this.vendorTxt.Location = new System.Drawing.Point(158, 206);
             this.vendorTxt.Name = "vendorTxt";
             this.vendorTxt.Size = new System.Drawing.Size(142, 20);
             this.vendorTxt.TabIndex = 9;
+            this.vendorTxt.TextChanged += new System.EventHandler(this.recordModified);
             // 
             // label6
             // 
@@ -253,10 +275,12 @@ namespace agape_rfid_desktop
             // 
             // datePicker
             // 
+            this.datePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSource1, "DataUscita", true));
             this.datePicker.Location = new System.Drawing.Point(158, 167);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(200, 20);
             this.datePicker.TabIndex = 7;
+            this.datePicker.ValueChanged += new System.EventHandler(this.recordModified);
             // 
             // label5
             // 
@@ -269,10 +293,12 @@ namespace agape_rfid_desktop
             // 
             // idTxt
             // 
+            this.idTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "CodMatricola", true));
             this.idTxt.Location = new System.Drawing.Point(158, 130);
             this.idTxt.Name = "idTxt";
             this.idTxt.Size = new System.Drawing.Size(142, 20);
             this.idTxt.TabIndex = 5;
+            this.idTxt.TextChanged += new System.EventHandler(this.recordModified);
             // 
             // label4
             // 
@@ -285,11 +311,13 @@ namespace agape_rfid_desktop
             // 
             // descTxt
             // 
+            this.descTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "DescrizioneArticolo", true));
             this.descTxt.Location = new System.Drawing.Point(158, 58);
             this.descTxt.Multiline = true;
             this.descTxt.Name = "descTxt";
             this.descTxt.Size = new System.Drawing.Size(350, 52);
             this.descTxt.TabIndex = 3;
+            this.descTxt.TextChanged += new System.EventHandler(this.recordModified);
             // 
             // label3
             // 
@@ -302,11 +330,12 @@ namespace agape_rfid_desktop
             // 
             // codartTxt
             // 
+            this.codartTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeTaggedItemsDS, "TaggedItemsView.CodArt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.codartTxt.Location = new System.Drawing.Point(158, 20);
             this.codartTxt.Name = "codartTxt";
             this.codartTxt.Size = new System.Drawing.Size(142, 20);
             this.codartTxt.TabIndex = 1;
-            this.codartTxt.TextChanged += new System.EventHandler(this.codartTxt_TextChanged);
+            this.codartTxt.TextChanged += new System.EventHandler(this.recordModified);
             // 
             // label2
             // 
@@ -319,6 +348,7 @@ namespace agape_rfid_desktop
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.detailsBtn);
             this.tabPage2.Controls.Add(this.tabControl1);
             this.tabPage2.Controls.Add(this.label11);
@@ -330,6 +360,15 @@ namespace agape_rfid_desktop
             this.tabPage2.Text = "Dettagli aggiuntivi";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(323, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(100, 13);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Apri file in NotePad:";
+            // 
             // detailsBtn
             // 
             this.detailsBtn.Location = new System.Drawing.Point(429, 8);
@@ -338,6 +377,7 @@ namespace agape_rfid_desktop
             this.detailsBtn.TabIndex = 2;
             this.detailsBtn.Text = "Modifica dettagli";
             this.detailsBtn.UseVisualStyleBackColor = true;
+            this.detailsBtn.Click += new System.EventHandler(this.detailsBtn_Click);
             // 
             // tabControl1
             // 
@@ -397,6 +437,7 @@ namespace agape_rfid_desktop
             this.pictureIt.Location = new System.Drawing.Point(350, 154);
             this.pictureIt.Name = "pictureIt";
             this.pictureIt.Size = new System.Drawing.Size(100, 83);
+            this.pictureIt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureIt.TabIndex = 8;
             this.pictureIt.TabStop = false;
             // 
@@ -482,8 +523,10 @@ namespace agape_rfid_desktop
             this.pictureEn.Location = new System.Drawing.Point(350, 154);
             this.pictureEn.Name = "pictureEn";
             this.pictureEn.Size = new System.Drawing.Size(100, 83);
+            this.pictureEn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureEn.TabIndex = 15;
             this.pictureEn.TabStop = false;
+            this.pictureEn.DoubleClick += new System.EventHandler(this.pictureEn_DoubleClick);
             // 
             // valuesEnTxt
             // 
@@ -522,9 +565,10 @@ namespace agape_rfid_desktop
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.Size = new System.Drawing.Size(90, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Localizzazione";
             // 
@@ -540,6 +584,15 @@ namespace agape_rfid_desktop
             this.tabPage3.Text = "Stampa";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // printBtn
+            // 
+            this.printBtn.Location = new System.Drawing.Point(458, 124);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(75, 23);
+            this.printBtn.TabIndex = 1;
+            this.printBtn.Text = "Stampa";
+            this.printBtn.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.enRbtn);
@@ -551,9 +604,15 @@ namespace agape_rfid_desktop
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Selezione lingua";
             // 
-            // openFileDialog1
+            // enRbtn
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.enRbtn.AutoSize = true;
+            this.enRbtn.Location = new System.Drawing.Point(12, 62);
+            this.enRbtn.Name = "enRbtn";
+            this.enRbtn.Size = new System.Drawing.Size(59, 17);
+            this.enRbtn.TabIndex = 1;
+            this.enRbtn.Text = "Inglese";
+            this.enRbtn.UseVisualStyleBackColor = true;
             // 
             // itRbtn
             // 
@@ -567,28 +626,13 @@ namespace agape_rfid_desktop
             this.itRbtn.Text = "Italiano";
             this.itRbtn.UseVisualStyleBackColor = true;
             // 
-            // enRbtn
+            // openFileDialog1
             // 
-            this.enRbtn.AutoSize = true;
-            this.enRbtn.Location = new System.Drawing.Point(12, 62);
-            this.enRbtn.Name = "enRbtn";
-            this.enRbtn.Size = new System.Drawing.Size(59, 17);
-            this.enRbtn.TabIndex = 1;
-            this.enRbtn.Text = "Inglese";
-            this.enRbtn.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // printBtn
+            // taggedItemsViewTableAdapter
             // 
-            this.printBtn.Location = new System.Drawing.Point(458, 124);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(75, 23);
-            this.printBtn.TabIndex = 1;
-            this.printBtn.Text = "Stampa";
-            this.printBtn.UseVisualStyleBackColor = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.taggedItemsViewTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -598,12 +642,15 @@ namespace agape_rfid_desktop
             this.Controls.Add(this.tabPane);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "agape-rfid";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPane.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agapeTaggedItemsDS)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -616,7 +663,6 @@ namespace agape_rfid_desktop
             this.tabPage3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -675,6 +721,9 @@ namespace agape_rfid_desktop
         private System.Windows.Forms.RadioButton enRbtn;
         private System.Windows.Forms.RadioButton itRbtn;
         private System.Windows.Forms.Button printBtn;
+        private agapeTaggedItemsDS agapeTaggedItemsDS;
+        private agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.TaggedItemsViewTableAdapter taggedItemsViewTableAdapter;
+        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

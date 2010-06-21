@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="agapeItemsDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agapeItemsDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="agapeTaggedItemsDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agapeTaggedItemsDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DescriptionFileHandler.cs" />
+    <Compile Include="ItemDescription.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,7 +83,31 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="agapeItemsDS.xsc">
+      <DependentUpon>agapeItemsDS.xsd</DependentUpon>
+    </None>
+    <None Include="agapeItemsDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>agapeItemsDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="agapeItemsDS.xss">
+      <DependentUpon>agapeItemsDS.xsd</DependentUpon>
+    </None>
+    <None Include="agapeTaggedItemsDS.xsc">
+      <DependentUpon>agapeTaggedItemsDS.xsd</DependentUpon>
+    </None>
+    <None Include="agapeTaggedItemsDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>agapeTaggedItemsDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="agapeTaggedItemsDS.xss">
+      <DependentUpon>agapeTaggedItemsDS.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
