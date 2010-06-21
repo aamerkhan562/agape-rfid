@@ -12,23 +12,6 @@ namespace agape_rfid_mobile
 {
     public partial class Form1 : FormMerc
     {
-        public Form1()
-        {
-            InitializeComponent();
-            Framework f = new Framework();
-        }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dispatcher.deliverMessage("Frame", "go");
-        }
 
-
-        [MessageBinding(message="init")]
-        private void buttonClicked()
-        {
-            int i = 0;
-            this.Text = "Culo" + i++;
-        }
     }
 }

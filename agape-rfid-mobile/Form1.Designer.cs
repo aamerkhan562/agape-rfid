@@ -30,25 +30,46 @@
         private void InitializeComponent()
         {
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cercaBtn = new System.Windows.Forms.Button();
+            this.orderNumTb = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // cercaBtn
             // 
-            this.button1.Location = new System.Drawing.Point(354, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 20);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cercaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cercaBtn.Location = new System.Drawing.Point(353, 3);
+            this.cercaBtn.Name = "cercaBtn";
+            this.cercaBtn.Size = new System.Drawing.Size(72, 20);
+            this.cercaBtn.TabIndex = 0;
+            this.cercaBtn.Text = "Cerca";
+            this.cercaBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // orderNumTb
+            // 
+            this.orderNumTb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.orderNumTb.Location = new System.Drawing.Point(68, 3);
+            this.orderNumTb.Name = "orderNumTb";
+            this.orderNumTb.Size = new System.Drawing.Size(279, 23);
+            this.orderNumTb.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.Text = "# Ordine";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(638, 455);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(428, 455);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.orderNumTb);
+            this.Controls.Add(this.cercaBtn);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -58,7 +79,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cercaBtn;
+        private System.Windows.Forms.TextBox orderNumTb;
+        private System.Windows.Forms.Label label1;
     }
 }
 
