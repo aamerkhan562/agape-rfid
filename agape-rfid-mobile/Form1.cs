@@ -18,7 +18,26 @@ namespace agape_rfid_mobile
 
         private void cercaBtn_Click(object sender, EventArgs e)
         {
-            
+            this.itemsViewBindingSource.Filter = "NumeroOrdine='" + orderNumTb.Text+"'";
+            this.itemsViewTableAdapter.Fill(this.agapeDataSet.ItemsView);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillByNumeroOrdineButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.itemsViewTableAdapter.FillByNumeroOrdine(this.agapeDataSet.ItemsView, numeroOrdineTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
