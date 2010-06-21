@@ -1,6 +1,8 @@
-﻿namespace agape_rfid_mobile
+﻿using it.mintlab.compactnet.mercframework;
+
+namespace agape_rfid_mobile
 {
-    partial class Form1
+    partial class Form1 : FormMerc
     {
         /// <summary>
         /// Required designer variable.

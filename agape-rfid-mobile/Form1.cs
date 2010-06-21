@@ -10,7 +10,7 @@ using it.mintlab.compactnet.mercframework;
 
 namespace agape_rfid_mobile
 {
-    public partial class Form1 : Form
+    public partial class Form1 : FormMerc
     {
 
     }

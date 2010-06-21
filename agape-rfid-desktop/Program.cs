@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+using it.mintlab.desktopnet.mercframework;
+
 namespace agape_rfid_desktop
 {
     static class Program
