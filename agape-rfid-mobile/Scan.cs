@@ -28,10 +28,10 @@ namespace agape_rfid_mobile
             this.Close();
         }
 
-        private void scanCompleted()
+        private void button1_Click(object sender, EventArgs e)
         {
-            new DataEntry(row,"").Show();//rfidId);
-            this.Close();
+            new DataEntry(row, dateTimePicker1.Value, this).Show();
         }
+
     }
 }

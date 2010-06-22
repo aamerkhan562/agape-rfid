@@ -74,6 +74,11 @@
     <Compile Include="DataEntry.Designer.cs">
       <DependentUpon>DataEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="destDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>destDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="OrderMD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +129,17 @@
     </None>
     <None Include="agapeDataSet.xss">
       <DependentUpon>agapeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="destDataSet.xsc">
+      <DependentUpon>destDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="destDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>destDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="destDataSet.xss">
+      <DependentUpon>destDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

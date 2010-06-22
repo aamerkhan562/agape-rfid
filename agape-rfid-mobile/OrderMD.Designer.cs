@@ -42,10 +42,10 @@
             this.CodCli = new System.Windows.Forms.DataGridTextBoxColumn();
             this.itemsViewTableAdapter = new agape_rfid_mobile.agapeDataSetTableAdapters.ItemsViewTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.scanBtn = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemsViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.orderNumTb.Location = new System.Drawing.Point(68, 3);
             this.orderNumTb.Name = "orderNumTb";
-            this.orderNumTb.Size = new System.Drawing.Size(77, 23);
+            this.orderNumTb.Size = new System.Drawing.Size(89, 23);
             this.orderNumTb.TabIndex = 1;
             // 
             // label1
@@ -113,7 +113,7 @@
             this.PrgArt.FormatInfo = null;
             this.PrgArt.HeaderText = "Prg.Art.";
             this.PrgArt.MappingName = "ProgressivoArticolo";
-            this.PrgArt.Width = 25;
+            this.PrgArt.Width = 28;
             // 
             // CodArt
             // 
@@ -121,6 +121,7 @@
             this.CodArt.FormatInfo = null;
             this.CodArt.HeaderText = "Cod.Art.";
             this.CodArt.MappingName = "CodArt";
+            this.CodArt.Width = 60;
             // 
             // CodRiv
             // 
@@ -128,6 +129,7 @@
             this.CodRiv.FormatInfo = null;
             this.CodRiv.HeaderText = "Cod.Riv.";
             this.CodRiv.MappingName = "CodRivenditore";
+            this.CodRiv.Width = 60;
             // 
             // CodCli
             // 
@@ -135,6 +137,7 @@
             this.CodCli.FormatInfo = null;
             this.CodCli.HeaderText = "Cod.Cli.";
             this.CodCli.MappingName = "CodCliente";
+            this.CodCli.Width = 60;
             // 
             // itemsViewTableAdapter
             // 
@@ -146,16 +149,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.Text = "Data";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.itemsViewBindingSource, "DataOrdine", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.dateTimePicker1.Location = new System.Drawing.Point(68, 32);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2010, 6, 22, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(168, 24);
-            this.dateTimePicker1.TabIndex = 9;
-            this.dateTimePicker1.Value = new System.DateTime(2010, 6, 22, 0, 0, 0, 0);
             // 
             // textBox1
             // 
@@ -184,16 +177,25 @@
             this.scanBtn.Text = "Scan";
             this.scanBtn.Click += new System.EventHandler(this.scanBtn_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsViewBindingSource, "DataOrdine", true, System.Windows.Forms.DataSourceUpdateMode.Never, null, "d"));
+            this.textBox2.Location = new System.Drawing.Point(68, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(89, 23);
+            this.textBox2.TabIndex = 17;
+            // 
             // OrderMD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(238, 280);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.scanBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGrid1);
             this.Controls.Add(this.label1);
@@ -222,10 +224,10 @@
         private System.Windows.Forms.DataGridTextBoxColumn CodCli;
         private System.Windows.Forms.DataGridTableStyle dataGridTableStyle1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button scanBtn;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
