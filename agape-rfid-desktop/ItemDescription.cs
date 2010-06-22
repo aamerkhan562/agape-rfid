@@ -2,12 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Drawing;
 
 namespace agape_rfid_desktop
 {
     class ItemDescription
     {
         private LocalizedDetails[] details = new LocalizedDetails[2];
+
+        private Bitmap photo;
+        public Bitmap Photo
+        {
+            get { return photo; }
+            private set { photo = value; }
+        }
+
+        private String photoPath;
+        public String PhotoPath
+        {
+            get { return photoPath; }
+            set
+            {
+                try
+                {
+                    Photo = new Bitmap(value);
+                    photoPath = value;
+                }
+                catch {
+                    Photo = Properties.Resources.warning;
+                    photoPath = "";
+                }
+            }
+
+        }
 
         public ItemDescription()
         {
@@ -40,7 +68,6 @@ namespace agape_rfid_desktop
     {
         public String Description;
         public String Values;
-        public String PhotoPath;
 
         public LocalizedDetails() : this("", "", "") { }
 
@@ -48,12 +75,11 @@ namespace agape_rfid_desktop
         {
             this.Description = desc;
             this.Values = values;
-            this.PhotoPath = photoPath;
         }
 
         public override String ToString()
         {
-            return Description + " " + Values + " " + PhotoPath;
+            return Description + " " + Values;
         }
     }
 

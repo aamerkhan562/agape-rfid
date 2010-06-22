@@ -81,6 +81,15 @@ namespace agape_rfid_desktop.Properties {
         /// <summary>
         ///   Looks up a localized string similar to C:\Documents and Settings\User\Desktop\mint-lab\desc.
         /// </summary>
+        internal static string photoPath {
+            get {
+                return ResourceManager.GetString("photoPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C:\Documents and Settings\User\Desktop\mint-lab\desc.
+        /// </summary>
         internal static string productDescriptionDataPath {
             get {
                 return ResourceManager.GetString("productDescriptionDataPath", resourceCulture);
@@ -102,6 +111,13 @@ namespace agape_rfid_desktop.Properties {
         internal static string valIT {
             get {
                 return ResourceManager.GetString("valIT", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -40,9 +40,9 @@ namespace agape_rfid_desktop
                 throw new IOException("File does not exist");
             }
             FileStream s = file.Open(FileMode.Open, FileAccess.Read);
-            StreamReader stream = new StreamReader(s);
+            StreamReader stream = new StreamReader(s, Encoding.Default);
             String content = stream.ReadToEnd();
-            String[] splitted = content.Split(new char[]{'\r','\n','|'},StringSplitOptions.RemoveEmptyEntries);
+            String[] splitted = content.Split(new string[] { "[","]\r\n","\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             ItemDescription desc = new ItemDescription();
             
             for (int i = 0; i < splitted.Length; i++)
