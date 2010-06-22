@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MainMenu mainMenu1;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -30,27 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.cercaBtn = new System.Windows.Forms.Button();
             this.orderNumTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.itemsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGrid1 = new System.Windows.Forms.DataGrid();
-            this.fillByNumeroOrdinePanel = new System.Windows.Forms.Panel();
-            this.numeroOrdineLabel = new System.Windows.Forms.Label();
-            this.numeroOrdineTextBox = new System.Windows.Forms.TextBox();
-            this.fillByNumeroOrdineButton = new System.Windows.Forms.Button();
             this.agapeDataSet = new agape_rfid_mobile.agapeDataSet();
+            this.dataGrid1 = new System.Windows.Forms.DataGrid();
+            this.dataGridTableStyle1 = new System.Windows.Forms.DataGridTableStyle();
+            this.PrgArt = new System.Windows.Forms.DataGridTextBoxColumn();
+            this.CodArt = new System.Windows.Forms.DataGridTextBoxColumn();
+            this.CodRiv = new System.Windows.Forms.DataGridTextBoxColumn();
+            this.CodCli = new System.Windows.Forms.DataGridTextBoxColumn();
             this.itemsViewTableAdapter = new agape_rfid_mobile.agapeDataSetTableAdapters.ItemsViewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemsViewBindingSource)).BeginInit();
-            this.fillByNumeroOrdinePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // cercaBtn
             // 
             this.cercaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cercaBtn.Location = new System.Drawing.Point(308, 3);
+            this.cercaBtn.Location = new System.Drawing.Point(211, 3);
             this.cercaBtn.Name = "cercaBtn";
             this.cercaBtn.Size = new System.Drawing.Size(72, 20);
             this.cercaBtn.TabIndex = 0;
@@ -63,7 +61,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.orderNumTb.Location = new System.Drawing.Point(68, 3);
             this.orderNumTb.Name = "orderNumTb";
-            this.orderNumTb.Size = new System.Drawing.Size(234, 23);
+            this.orderNumTb.Size = new System.Drawing.Size(137, 23);
             this.orderNumTb.TabIndex = 1;
             // 
             // label1
@@ -78,54 +76,56 @@
             this.itemsViewBindingSource.DataMember = "ItemsView";
             this.itemsViewBindingSource.DataSource = this.agapeDataSet;
             // 
-            // dataGrid1
-            // 
-            this.dataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGrid1.DataSource = this.itemsViewBindingSource;
-            this.dataGrid1.Location = new System.Drawing.Point(3, 32);
-            this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.Size = new System.Drawing.Size(377, 288);
-            this.dataGrid1.TabIndex = 4;
-            // 
-            // fillByNumeroOrdinePanel
-            // 
-            this.fillByNumeroOrdinePanel.AutoScroll = true;
-            this.fillByNumeroOrdinePanel.Controls.Add(this.numeroOrdineLabel);
-            this.fillByNumeroOrdinePanel.Controls.Add(this.numeroOrdineTextBox);
-            this.fillByNumeroOrdinePanel.Controls.Add(this.fillByNumeroOrdineButton);
-            this.fillByNumeroOrdinePanel.Location = new System.Drawing.Point(10, 330);
-            this.fillByNumeroOrdinePanel.Name = "fillByNumeroOrdinePanel";
-            this.fillByNumeroOrdinePanel.Size = new System.Drawing.Size(370, 81);
-            // 
-            // numeroOrdineLabel
-            // 
-            this.numeroOrdineLabel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.numeroOrdineLabel.Location = new System.Drawing.Point(8, 11);
-            this.numeroOrdineLabel.Name = "numeroOrdineLabel";
-            this.numeroOrdineLabel.Size = new System.Drawing.Size(119, 17);
-            this.numeroOrdineLabel.Text = "Numero Ordine:";
-            // 
-            // numeroOrdineTextBox
-            // 
-            this.numeroOrdineTextBox.Location = new System.Drawing.Point(134, 8);
-            this.numeroOrdineTextBox.Name = "numeroOrdineTextBox";
-            this.numeroOrdineTextBox.Size = new System.Drawing.Size(100, 23);
-            this.numeroOrdineTextBox.TabIndex = 1;
-            // 
-            // fillByNumeroOrdineButton
-            // 
-            this.fillByNumeroOrdineButton.Location = new System.Drawing.Point(8, 41);
-            this.fillByNumeroOrdineButton.Name = "fillByNumeroOrdineButton";
-            this.fillByNumeroOrdineButton.Size = new System.Drawing.Size(158, 20);
-            this.fillByNumeroOrdineButton.TabIndex = 2;
-            this.fillByNumeroOrdineButton.Text = "Fill By Numero Ordine:";
-            this.fillByNumeroOrdineButton.Click += new System.EventHandler(this.fillByNumeroOrdineButton_Click);
-            // 
             // agapeDataSet
             // 
             this.agapeDataSet.DataSetName = "agapeDataSet";
             this.agapeDataSet.Prefix = "";
             this.agapeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGrid1
+            // 
+            this.dataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dataGrid1.DataSource = this.itemsViewBindingSource;
+            this.dataGrid1.Location = new System.Drawing.Point(3, 77);
+            this.dataGrid1.Name = "dataGrid1";
+            this.dataGrid1.Size = new System.Drawing.Size(280, 289);
+            this.dataGrid1.TabIndex = 6;
+            this.dataGrid1.TableStyles.Add(this.dataGridTableStyle1);
+            // 
+            // dataGridTableStyle1
+            // 
+            this.dataGridTableStyle1.GridColumnStyles.Add(this.PrgArt);
+            this.dataGridTableStyle1.GridColumnStyles.Add(this.CodArt);
+            this.dataGridTableStyle1.GridColumnStyles.Add(this.CodRiv);
+            this.dataGridTableStyle1.GridColumnStyles.Add(this.CodCli);
+            // 
+            // PrgArt
+            // 
+            this.PrgArt.Format = "";
+            this.PrgArt.FormatInfo = null;
+            this.PrgArt.HeaderText = "Prg.Art.";
+            this.PrgArt.MappingName = "ProgressivoArticolo";
+            // 
+            // CodArt
+            // 
+            this.CodArt.Format = "";
+            this.CodArt.FormatInfo = null;
+            this.CodArt.HeaderText = "Cod.Art.";
+            this.CodArt.MappingName = "CodArt";
+            // 
+            // CodRiv
+            // 
+            this.CodRiv.Format = "";
+            this.CodRiv.FormatInfo = null;
+            this.CodRiv.HeaderText = "Cod.Riv.";
+            this.CodRiv.MappingName = "CodRivenditore";
+            // 
+            // CodCli
+            // 
+            this.CodCli.Format = "";
+            this.CodCli.FormatInfo = null;
+            this.CodCli.HeaderText = "Cod.Cli.";
+            this.CodCli.MappingName = "CodCliente";
             // 
             // itemsViewTableAdapter
             // 
@@ -136,18 +136,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(383, 455);
-            this.Controls.Add(this.fillByNumeroOrdinePanel);
+            this.ClientSize = new System.Drawing.Size(286, 493);
             this.Controls.Add(this.dataGrid1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderNumTb);
             this.Controls.Add(this.cercaBtn);
-            this.Menu = this.mainMenu1;
             this.Name = "Form1";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemsViewBindingSource)).EndInit();
-            this.fillByNumeroOrdinePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).EndInit();
             this.ResumeLayout(false);
 
@@ -159,13 +155,14 @@
         private System.Windows.Forms.TextBox orderNumTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGrid dataGrid1;
+        private agapeDataSet agapeDataSet;
         private System.Windows.Forms.BindingSource itemsViewBindingSource;
         private agape_rfid_mobile.agapeDataSetTableAdapters.ItemsViewTableAdapter itemsViewTableAdapter;
-        private agapeDataSet agapeDataSet;
-        private System.Windows.Forms.Panel fillByNumeroOrdinePanel;
-        private System.Windows.Forms.Label numeroOrdineLabel;
-        private System.Windows.Forms.TextBox numeroOrdineTextBox;
-        private System.Windows.Forms.Button fillByNumeroOrdineButton;
+        private System.Windows.Forms.DataGridTableStyle dataGridTableStyle1;
+        private System.Windows.Forms.DataGridTextBoxColumn PrgArt;
+        private System.Windows.Forms.DataGridTextBoxColumn CodArt;
+        private System.Windows.Forms.DataGridTextBoxColumn CodRiv;
+        private System.Windows.Forms.DataGridTextBoxColumn CodCli;
     }
 }
 

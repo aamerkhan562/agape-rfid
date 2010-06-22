@@ -888,7 +888,7 @@ namespace agape_rfid_mobile.agapeDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DataOrdine";
-            param.DbType = global::System.Data.DbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -911,7 +911,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataOrdine";
-            param.DbType = global::System.Data.DbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -962,7 +962,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataOrdine";
-            param.DbType = global::System.Data.DbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -1009,7 +1009,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DataOrdine";
-            param.DbType = global::System.Data.DbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1040,9 +1040,9 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo" +
-                ", CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente FROM dbo." +
-                "ItemsView WHERE NumeroOrdine=@NumeroOrdine";
+            this._commandCollection[1].CommandText = "SELECT     DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRiven" +
+                "ditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente\r\nFROM         Items" +
+                "View\r\nWHERE     (NumeroOrdine = @NumeroOrdine)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
@@ -1087,6 +1087,21 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual agapeDataSet.ItemsViewDataTable GetDataByNumeroOrdine(string NumeroOrdine) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("NumeroOrdine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NumeroOrdine));
+            }
+            agapeDataSet.ItemsViewDataTable dataTable = new agapeDataSet.ItemsViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

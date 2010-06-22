@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<config>
-  <mercs>
-    <merc name="Form1" class="agape_rfid_mobile.Form1, agape-rfid-mobile" startmsg="init"/>
-  </mercs>
-</config>
