@@ -7,15 +7,45 @@ namespace agape_rfid_desktop
 {
     class ItemDescription
     {
+        private LocalizedDetails[] details = new LocalizedDetails[2];
 
-        public Languages Language;
+        public ItemDescription()
+        {
+            for (int i = 0; i < details.Length; i++) 
+            {
+                details[i] = new LocalizedDetails();
+            }
+        }
+
+        public LocalizedDetails this[Languages index]
+        { // The get accessor.
+             get
+             {
+                 return details[(int)index];
+            }
+        }
+
+        public override String ToString()
+        {
+            String res = "";
+            foreach (LocalizedDetails det in details)
+            {
+                res +=  det.ToString();
+            }
+            return res;
+        }
+    }
+
+    public class LocalizedDetails
+    {
         public String Description;
         public String Values;
         public String PhotoPath;
 
-        public ItemDescription(Languages language, String desc, String values, String photoPath)
+        public LocalizedDetails() : this("", "", "") { }
+
+        public LocalizedDetails(String desc, String values, String photoPath)
         {
-            this.Language = language;
             this.Description = desc;
             this.Values = values;
             this.PhotoPath = photoPath;
@@ -23,11 +53,11 @@ namespace agape_rfid_desktop
 
         public override String ToString()
         {
-            return Language + " " + Description + " " + Values + " " + PhotoPath;
+            return Description + " " + Values + " " + PhotoPath;
         }
     }
 
-    enum Languages
+    public enum Languages : int
     {
         IT,EN
     }

@@ -15,9 +15,23 @@ namespace agape_rfid_desktop
         [STAThread]
         static void Main()
         {
+            Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(onThreadException);
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(onCurrentDomain_UnhandledException);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+        static void onThreadException(Object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show("Unhandled exception " + e.Exception.ToString());
+        }
+
+        static void onCurrentDomain_UnhandledException(Object sender, UnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("Unhandled exception " + e.ToString());
+        }
     }
+
 }

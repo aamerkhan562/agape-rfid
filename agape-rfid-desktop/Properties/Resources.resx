@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="descEN" xml:space="preserve">
+    <value>Descrizione-en</value>
+  </data>
+  <data name="descIT" xml:space="preserve">
+    <value>Descrizione-it</value>
+  </data>
   <data name="productDescriptionDataPath" xml:space="preserve">
     <value>C:\Documents and Settings\User\Desktop\mint-lab\desc</value>
+  </data>
+  <data name="valEN" xml:space="preserve">
+    <value>Particolari-en</value>
+  </data>
+  <data name="valIT" xml:space="preserve">
+    <value>Particolari-it</value>
   </data>
 </root>

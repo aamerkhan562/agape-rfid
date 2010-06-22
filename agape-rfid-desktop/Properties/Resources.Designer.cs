@@ -61,11 +61,47 @@ namespace agape_rfid_desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Descrizione-en.
+        /// </summary>
+        internal static string descEN {
+            get {
+                return ResourceManager.GetString("descEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrizione-it.
+        /// </summary>
+        internal static string descIT {
+            get {
+                return ResourceManager.GetString("descIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C:\Documents and Settings\User\Desktop\mint-lab\desc.
         /// </summary>
         internal static string productDescriptionDataPath {
             get {
                 return ResourceManager.GetString("productDescriptionDataPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Particolari-en.
+        /// </summary>
+        internal static string valEN {
+            get {
+                return ResourceManager.GetString("valEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Particolari-it.
+        /// </summary>
+        internal static string valIT {
+            get {
+                return ResourceManager.GetString("valIT", resourceCulture);
             }
         }
     }

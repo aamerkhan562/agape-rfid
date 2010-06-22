@@ -63,6 +63,7 @@
       <DependentUpon>agapeTaggedItemsDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DescriptionFileHandler.cs" />
+    <Compile Include="FSWatcher.cs" />
     <Compile Include="ItemDescription.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
