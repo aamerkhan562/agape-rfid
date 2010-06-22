@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace agape_rfid_mobile
 {
-    public partial class Form1 : Form
+    public partial class OrderMD : Form
     {
-        public Form1()
+        public OrderMD()
         {
             InitializeComponent();
         }
@@ -19,13 +19,27 @@ namespace agape_rfid_mobile
         private void cercaBtn_Click(object sender, EventArgs e)
         {
             itemsViewTableAdapter.FillByNumeroOrdine(agapeDataSet.ItemsView, orderNumTb.Text);
+            scanBtn.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'agapeDataSet.ItemsView' table. You can move, or remove it, as needed.
-            this.itemsViewTableAdapter.Fill(this.agapeDataSet.ItemsView);
+            //this.itemsViewTableAdapter.Fill(this.agapeDataSet.ItemsView);
+        }
 
+        private void scanBtn_Click(object sender, EventArgs e)
+        {
+            DataRow dr = ((DataRowView)itemsViewBindingSource.Current).Row;
+            new Scan(dr).Show();
+        }
+
+        private void dataGrid1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            int row = dataGrid1.CurrentCell.RowNumber;
+            this.dataGrid1.Select(row);
+            this.dataGrid1.CurrentCell = new DataGridCell(row, 0); ;
+            scanBtn.Enabled = true;
         }
     }
 }

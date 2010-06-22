@@ -1041,8 +1041,9 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT     DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRiven" +
-                "ditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente\r\nFROM         Items" +
-                "View\r\nWHERE     (NumeroOrdine = @NumeroOrdine)";
+                "ditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, \r\n                " +
+                "      NumeroOrdine\r\nFROM         ItemsView\r\nWHERE     (NumeroOrdine = @NumeroOrd" +
+                "ine)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";

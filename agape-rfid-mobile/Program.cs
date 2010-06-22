@@ -12,7 +12,7 @@ namespace agape_rfid_mobile
         /// </summary>
         static void Main()
         {
-            Application.Run(new Form1());
+            Application.Run(new OrderMD());
         }
     }
 }

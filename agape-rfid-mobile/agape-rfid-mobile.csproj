@@ -68,16 +68,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>agapeDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="DataEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DataEntry.Designer.cs">
+      <DependentUpon>DataEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderMD.Designer.cs">
+      <DependentUpon>OrderMD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="DataEntry.resx">
+      <DependentUpon>DataEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderMD.resx">
+      <DependentUpon>OrderMD.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -85,9 +94,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Scan.resx">
+      <DependentUpon>Scan.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scan.Designer.cs">
+      <DependentUpon>Scan.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
