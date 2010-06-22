@@ -420,7 +420,7 @@ namespace agape_rfid_desktop {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow AddTaggedItemsViewRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, string DataUscita) {
+            public TaggedItemsViewRow AddTaggedItemsViewRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, System.DateTime DataUscita) {
                 TaggedItemsViewRow rowTaggedItemsViewRow = ((TaggedItemsViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NumeroOrdine,
@@ -496,7 +496,7 @@ namespace agape_rfid_desktop {
                 base.Columns.Add(this.columnAnagraficaCliente);
                 this.columnCodMatricola = new global::System.Data.DataColumn("CodMatricola", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodMatricola);
-                this.columnDataUscita = new global::System.Data.DataColumn("DataUscita", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDataUscita = new global::System.Data.DataColumn("DataUscita", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataUscita);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNumeroOrdine,
@@ -514,7 +514,6 @@ namespace agape_rfid_desktop {
                 this.columnCodCliente.MaxLength = 50;
                 this.columnAnagraficaCliente.MaxLength = 50;
                 this.columnCodMatricola.MaxLength = 50;
-                this.columnDataUscita.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -783,10 +782,10 @@ namespace agape_rfid_desktop {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string DataUscita {
+            public System.DateTime DataUscita {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.DataUscitaColumn]));
+                        return ((global::System.DateTime)(this[this.tableTaggedItemsView.DataUscitaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'DataUscita\' in table \'TaggedItemsView\' is DBNull.", e);

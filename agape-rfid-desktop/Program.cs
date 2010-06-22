@@ -12,7 +12,13 @@ namespace agape_rfid_desktop
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+
+        /*static void Main()
+        {
+            Framework f = new Framework("..\\..\\mercConfig.xml");
+        }*/
+
+         [STAThread]
         static void Main()
         {
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(onThreadException);

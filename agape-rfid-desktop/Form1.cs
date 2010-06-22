@@ -62,6 +62,9 @@ namespace agape_rfid_desktop
                 watcher.EnableRaisingEvents = false;
                 watcher.Filter = agapeTaggedItemsDS.TaggedItemsView.Rows[0][agapeTaggedItemsDS.TaggedItemsView.CodArtColumn] + ".txt";
 
+                this.saveBtn.Enabled = false;
+                modified = false;
+
                 details = null;
                 tabPane.SelectedIndex = 0;
             }
@@ -81,7 +84,7 @@ namespace agape_rfid_desktop
         // handler when changing pane in order to let the user save changed data
         private void tabPane_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (tabPane.SelectedIndex != 0 && !notifyUnsavedChangesAndUpdate()) // not saved changes in old item
+             if (tabPane.SelectedIndex != 0 && !notifyUnsavedChangesAndUpdate()) // not saved changes in old item
             {
                 tabPane.SelectedIndex = 0;
                 return;
@@ -104,6 +107,7 @@ namespace agape_rfid_desktop
                     {
                         System.Windows.Forms.MessageBox.Show(this,"File di descrizione non trovato");
                         details = new ItemDescription();
+                        loadField();
                     }
                 }
             }
