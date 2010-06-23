@@ -123,12 +123,6 @@
   <data name="descIT" xml:space="preserve">
     <value>Descrizione-it</value>
   </data>
-  <data name="photoPath" xml:space="preserve">
-    <value>C:\Documents and Settings\User\Desktop\mint-lab\desc</value>
-  </data>
-  <data name="productDescriptionDataPath" xml:space="preserve">
-    <value>C:\Documents and Settings\User\Desktop\mint-lab\desc</value>
-  </data>
   <data name="valEN" xml:space="preserve">
     <value>Particolari-en</value>
   </data>

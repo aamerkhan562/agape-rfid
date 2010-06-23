@@ -15,21 +15,27 @@ namespace agape_rfid_desktop
             get { return Path; }
             set
             {
-                DirectoryInfo dir1 = new DirectoryInfo(@value);
+                DirectoryInfo dir1 = new DirectoryInfo(value);
                 if (dir1.Exists)
                 {
                     dirPath = dir1;
                 }
                 else
                 {
-                    throw new IOException("The supplied path does not exist");
+                    dir1 = new DirectoryInfo(System.Environment.SpecialFolder.ProgramFiles + "\\agape-rfid");
+                    dirPath = dir1;
+                    if (!dir1.Exists)
+                    {
+                        dir1.Create();
+                        Properties.Settings.Default.productDescriptionDataPath = dir1.FullName;
+                    }
                 }
             }
         }
 
-        public DescriptionFileHandler(String path)
+        public DescriptionFileHandler()
         {
-            this.Path = path;
+            this.Path = agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath;
         }
 
         public ItemDescription loadItemDescription(String fileName)

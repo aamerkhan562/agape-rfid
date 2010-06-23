@@ -13,7 +13,7 @@ namespace agape_rfid_desktop.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "9.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -31,6 +31,30 @@ namespace agape_rfid_desktop.Properties {
         public string agapeConnectionString {
             get {
                 return ((string)(this["agapeConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Desktop\\mint-lab\\desc")]
+        public string photoPath {
+            get {
+                return ((string)(this["photoPath"]));
+            }
+            set {
+                this["photoPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Desktop\\mint-lab\\desc")]
+        public string productDescriptionDataPath {
+            get {
+                return ((string)(this["productDescriptionDataPath"]));
+            }
+            set {
+                this["productDescriptionDataPath"] = value;
             }
         }
     }

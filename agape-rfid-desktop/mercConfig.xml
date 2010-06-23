@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <config>
   <mercs>
-    <merc name="AMerc" class="agape_rfid_desktop.AMerc, agape-rfid-desktop" startmsg="init"/>
+    <merc name="AMerc" class="agape_rfid_desktop.AMerc, agape_rfid_desktop" startmsg="init"/>
   </mercs>
 </config>

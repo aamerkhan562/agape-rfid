@@ -22,7 +22,7 @@ namespace agape_rfid_desktop.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "2.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace agape_rfid_desktop.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("agape_rfid_desktop.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace agape_rfid_desktop.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace agape_rfid_desktop.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Descrizione-en.
         /// </summary>
-        internal static string descEN {
+        public static string descEN {
             get {
                 return ResourceManager.GetString("descEN", resourceCulture);
             }
@@ -72,34 +72,16 @@ namespace agape_rfid_desktop.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Descrizione-it.
         /// </summary>
-        internal static string descIT {
+        public static string descIT {
             get {
                 return ResourceManager.GetString("descIT", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Documents and Settings\User\Desktop\mint-lab\desc.
-        /// </summary>
-        internal static string photoPath {
-            get {
-                return ResourceManager.GetString("photoPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to C:\Documents and Settings\User\Desktop\mint-lab\desc.
-        /// </summary>
-        internal static string productDescriptionDataPath {
-            get {
-                return ResourceManager.GetString("productDescriptionDataPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Particolari-en.
         /// </summary>
-        internal static string valEN {
+        public static string valEN {
             get {
                 return ResourceManager.GetString("valEN", resourceCulture);
             }
@@ -108,13 +90,13 @@ namespace agape_rfid_desktop.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Particolari-it.
         /// </summary>
-        internal static string valIT {
+        public static string valIT {
             get {
                 return ResourceManager.GetString("valIT", resourceCulture);
             }
         }
         
-        internal static System.Drawing.Bitmap warning {
+        public static System.Drawing.Bitmap warning {
             get {
                 object obj = ResourceManager.GetObject("warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
