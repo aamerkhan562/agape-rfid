@@ -123,10 +123,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\log4net.dll" />
-    <Content Include="lib\NetMercFramework.dll" />
-    <Content Include="lib\NetTupleEngine.dll" />
-    <Content Include="lib\Newtonsoft.Json.dll" />
+    <Content Include="log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mercConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NetMercFramework.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NetTupleEngine.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Newtonsoft.Json.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\warning.png" />
   </ItemGroup>
   <ItemGroup>

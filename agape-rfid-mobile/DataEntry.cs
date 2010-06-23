@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace agape_rfid_mobile
 {
-    public partial class DataEntry : Form
+    public partial class DataEntry : Form , ATHF_DLL_NET.I_HFHost
     {
         private DataRow row;
         private DateTime exitDate;
@@ -73,6 +73,21 @@ namespace agape_rfid_mobile
             timer1.Enabled = false;
             this.Close();
             scanForm.Close();
+        }
+
+
+        #region I_HFHost Members
+
+        public void GetMemoryData(string data)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        private void DataEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("Keypressed");
         }
 
     }

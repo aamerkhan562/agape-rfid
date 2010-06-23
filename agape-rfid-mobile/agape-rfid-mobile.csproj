@@ -45,6 +45,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ATHF_DLL_NET, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -114,9 +115,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\CompactNetMercFramework.dll" />
-    <Content Include="lib\CompactNetTupleEngine.dll" />
-    <Content Include="lib\log4net.dll" />
+    <Content Include="ATHF_DLL_NET.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CompactNetMercFramework.dll" />
+    <Content Include="CompactNetTupleEngine.dll" />
+    <Content Include="log4net.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="agapeDataSet.xsc">

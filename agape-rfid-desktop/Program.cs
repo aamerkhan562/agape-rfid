@@ -21,6 +21,8 @@ namespace agape_rfid_desktop
          [STAThread]
         static void Main()
         {
+            Framework f = new Framework("mercConfig.xml");
+            
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(onThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(onCurrentDomain_UnhandledException);
 

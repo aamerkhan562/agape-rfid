@@ -8,10 +8,10 @@ namespace agape_rfid_desktop
 {
     class AMerc : Merc 
     {
-        [MessageBinding(message="init")]
+        [MessageBinding(message = "init")]
         public void init()
         {
-            Console.Write("init");
+            Console.WriteLine("init"); 
         }
     }
 }

@@ -125,6 +125,7 @@
             this.Name = "DataEntry";
             this.Text = "DataEntry";
             this.Load += new System.EventHandler(this.DataEntry_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataEntry_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).EndInit();
             this.ResumeLayout(false);
