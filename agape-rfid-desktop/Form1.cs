@@ -256,12 +256,16 @@ namespace agape_rfid_desktop
             DirectoryInfo dir = new DirectoryInfo(agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath);
             if (!dir.Exists)
             {
-                dir.Create();
+                dir = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\agape-rfid\\desc");
+                if (!dir.Exists) { dir.Create(); }
+                agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath = dir.FullName;
             }
             dir = new DirectoryInfo(agape_rfid_desktop.Properties.Settings.Default.photoPath);
             if (!dir.Exists)
             {
-                dir.Create();
+                dir = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\agape-rfid\\img");
+                if (!dir.Exists) { dir.Create(); }
+                agape_rfid_desktop.Properties.Settings.Default.photoPath = dir.FullName;
             }
         }
 
