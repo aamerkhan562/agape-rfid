@@ -21,6 +21,10 @@ namespace agape_rfid_mobile
             this.row = row;
             this.exitDate = exitDate;
             this.scanForm = scanForm;
+
+            ATHF_DLL_NET.C_HFHost h = new ATHF_DLL_NET.C_HFHost(this);
+            h.AT570RFID_RF4_Read_UID();
+
         }
 
         private void backBtn_Click(object sender, EventArgs e)

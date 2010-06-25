@@ -58,12 +58,12 @@ namespace agape_rfid_desktop
                 return;
             }
 
-            if (agapeTaggedItemsDS.TaggedItemsView.Rows.Count != 0) // found item
+            if (agapeTaggedItemsDS.AGAPE_RFID_T.Rows.Count != 0) // found item
             {
                 this.tabPane.Visible = true;
 
                 watcher.EnableRaisingEvents = false;
-                watcher.Filter = agapeTaggedItemsDS.TaggedItemsView.Rows[0][agapeTaggedItemsDS.TaggedItemsView.CodArtColumn] + ".txt";
+                watcher.Filter = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt";
 
                 this.saveBtn.Enabled = false;
                 modified = false;
@@ -118,7 +118,7 @@ namespace agape_rfid_desktop
 
         private void detailsBtn_Click(object sender, EventArgs e)
         {
-            FileInfo file = new FileInfo(agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + agapeTaggedItemsDS.TaggedItemsView.Rows[0][agapeTaggedItemsDS.TaggedItemsView.CodArtColumn] + ".txt");
+            FileInfo file = new FileInfo(agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
             if (file.Exists)
             {
                 System.Diagnostics.Process.Start(file.FullName);
@@ -218,12 +218,12 @@ namespace agape_rfid_desktop
             this.modified = false;
 
             // load changes on db
-            taggedItemsViewTableAdapter.Update(agapeTaggedItemsDS.TaggedItemsView); // on merc??
+            AGAPE_RFID_TTableAdapter.Update(agapeTaggedItemsDS.AGAPE_RFID_T); // on merc??
         }
 
         private void updateDetails() {
-            details = handler.loadItemDescription(agapeTaggedItemsDS.TaggedItemsView.Rows[0][agapeTaggedItemsDS.TaggedItemsView.CodArtColumn] + ".txt");
-            details.PhotoPath = agape_rfid_desktop.Properties.Settings.Default.photoPath + "\\" + agapeTaggedItemsDS.TaggedItemsView.Rows[0][agapeTaggedItemsDS.TaggedItemsView.CodArtColumn] + ".png";
+            details = handler.loadItemDescription(agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
+            details.PhotoPath = agape_rfid_desktop.Properties.Settings.Default.photoPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".png";
         }
 
         private Boolean notifyUnsavedChangesAndUpdate()
@@ -242,7 +242,7 @@ namespace agape_rfid_desktop
             }
 
             // queries the db and updated the backed model
-            taggedItemsViewTableAdapter.FillByCodMatricola(agapeTaggedItemsDS.TaggedItemsView, searchTxt.Text);
+            AGAPE_RFID_TTableAdapter.FillByCodMatricola(agapeTaggedItemsDS.AGAPE_RFID_T, searchTxt.Text);
             // da scaricare ad un worker thread o MERC?
 
             this.saveBtn.Enabled = false;

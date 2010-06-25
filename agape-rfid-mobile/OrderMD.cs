@@ -18,7 +18,7 @@ namespace agape_rfid_mobile
 
         private void cercaBtn_Click(object sender, EventArgs e)
         {
-            itemsViewTableAdapter.FillByNumeroOrdine(agapeDataSet.ItemsView, orderNumTb.Text);
+            AGAPE_RFIDTableAdapter.FillByNumeroOrdine(agapeDataSet.AGAPE_RFID, orderNumTb.Text);
             scanBtn.Enabled = false;
         }
 
@@ -30,7 +30,7 @@ namespace agape_rfid_mobile
 
         private void scanBtn_Click(object sender, EventArgs e)
         {
-            DataRow dr = ((DataRowView)itemsViewBindingSource.Current).Row;
+            DataRow dr = ((DataRowView)agapeBindingSource.Current).Row;
             new Scan(dr).Show();
         }
 

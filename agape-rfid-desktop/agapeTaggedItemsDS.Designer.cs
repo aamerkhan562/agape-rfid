@@ -25,7 +25,7 @@ namespace agape_rfid_desktop {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class agapeTaggedItemsDS : global::System.Data.DataSet {
         
-        private TaggedItemsViewDataTable tableTaggedItemsView;
+        private AGAPE_RFID_TDataTable tableAGAPE_RFID_T;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -53,8 +53,8 @@ namespace agape_rfid_desktop {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TaggedItemsView"] != null)) {
-                    base.Tables.Add(new TaggedItemsViewDataTable(ds.Tables["TaggedItemsView"]));
+                if ((ds.Tables["AGAPE_RFID_T"] != null)) {
+                    base.Tables.Add(new AGAPE_RFID_TDataTable(ds.Tables["AGAPE_RFID_T"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -77,9 +77,9 @@ namespace agape_rfid_desktop {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TaggedItemsViewDataTable TaggedItemsView {
+        public AGAPE_RFID_TDataTable AGAPE_RFID_T {
             get {
-                return this.tableTaggedItemsView;
+                return this.tableAGAPE_RFID_T;
             }
         }
         
@@ -142,8 +142,8 @@ namespace agape_rfid_desktop {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TaggedItemsView"] != null)) {
-                    base.Tables.Add(new TaggedItemsViewDataTable(ds.Tables["TaggedItemsView"]));
+                if ((ds.Tables["AGAPE_RFID_T"] != null)) {
+                    base.Tables.Add(new AGAPE_RFID_TDataTable(ds.Tables["AGAPE_RFID_T"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -175,10 +175,10 @@ namespace agape_rfid_desktop {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         internal void InitVars(bool initTable) {
-            this.tableTaggedItemsView = ((TaggedItemsViewDataTable)(base.Tables["TaggedItemsView"]));
+            this.tableAGAPE_RFID_T = ((AGAPE_RFID_TDataTable)(base.Tables["AGAPE_RFID_T"]));
             if ((initTable == true)) {
-                if ((this.tableTaggedItemsView != null)) {
-                    this.tableTaggedItemsView.InitVars();
+                if ((this.tableAGAPE_RFID_T != null)) {
+                    this.tableAGAPE_RFID_T.InitVars();
                 }
             }
         }
@@ -190,12 +190,12 @@ namespace agape_rfid_desktop {
             this.Namespace = "http://tempuri.org/agapeTaggedItemsDS.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTaggedItemsView = new TaggedItemsViewDataTable();
-            base.Tables.Add(this.tableTaggedItemsView);
+            this.tableAGAPE_RFID_T = new AGAPE_RFID_TDataTable();
+            base.Tables.Add(this.tableAGAPE_RFID_T);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeTaggedItemsView() {
+        private bool ShouldSerializeAGAPE_RFID_T() {
             return false;
         }
         
@@ -252,7 +252,7 @@ namespace agape_rfid_desktop {
             return type;
         }
         
-        public delegate void TaggedItemsViewRowChangeEventHandler(object sender, TaggedItemsViewRowChangeEvent e);
+        public delegate void AGAPE_RFID_TRowChangeEventHandler(object sender, AGAPE_RFID_TRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -260,7 +260,7 @@ namespace agape_rfid_desktop {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TaggedItemsViewDataTable : global::System.Data.TypedTableBase<TaggedItemsViewRow> {
+        public partial class AGAPE_RFID_TDataTable : global::System.Data.TypedTableBase<AGAPE_RFID_TRow> {
             
             private global::System.Data.DataColumn columnNumeroOrdine;
             
@@ -285,15 +285,15 @@ namespace agape_rfid_desktop {
             private global::System.Data.DataColumn columnDataUscita;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewDataTable() {
-                this.TableName = "TaggedItemsView";
+            public AGAPE_RFID_TDataTable() {
+                this.TableName = "AGAPE_RFID_T";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal TaggedItemsViewDataTable(global::System.Data.DataTable table) {
+            internal AGAPE_RFID_TDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -309,7 +309,7 @@ namespace agape_rfid_desktop {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected TaggedItemsViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected AGAPE_RFID_TDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -400,28 +400,28 @@ namespace agape_rfid_desktop {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow this[int index] {
+            public AGAPE_RFID_TRow this[int index] {
                 get {
-                    return ((TaggedItemsViewRow)(this.Rows[index]));
+                    return ((AGAPE_RFID_TRow)(this.Rows[index]));
                 }
             }
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowChanging;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowChanging;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowChanged;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowChanged;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowDeleting;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowDeleting;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowDeleted;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddTaggedItemsViewRow(TaggedItemsViewRow row) {
+            public void AddAGAPE_RFID_TRow(AGAPE_RFID_TRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow AddTaggedItemsViewRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, System.DateTime DataUscita) {
-                TaggedItemsViewRow rowTaggedItemsViewRow = ((TaggedItemsViewRow)(this.NewRow()));
+            public AGAPE_RFID_TRow AddAGAPE_RFID_TRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, System.DateTime DataUscita) {
+                AGAPE_RFID_TRow rowAGAPE_RFID_TRow = ((AGAPE_RFID_TRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NumeroOrdine,
                         DataOrdine,
@@ -434,14 +434,14 @@ namespace agape_rfid_desktop {
                         AnagraficaCliente,
                         CodMatricola,
                         DataUscita};
-                rowTaggedItemsViewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTaggedItemsViewRow);
-                return rowTaggedItemsViewRow;
+                rowAGAPE_RFID_TRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAGAPE_RFID_TRow);
+                return rowAGAPE_RFID_TRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow FindByNumeroOrdineDataOrdineProgressivoArticolo(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
-                return ((TaggedItemsViewRow)(this.Rows.Find(new object[] {
+            public AGAPE_RFID_TRow FindByNumeroOrdineDataOrdineProgressivoArticolo(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
+                return ((AGAPE_RFID_TRow)(this.Rows.Find(new object[] {
                             NumeroOrdine,
                             DataOrdine,
                             ProgressivoArticolo})));
@@ -449,14 +449,14 @@ namespace agape_rfid_desktop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                TaggedItemsViewDataTable cln = ((TaggedItemsViewDataTable)(base.Clone()));
+                AGAPE_RFID_TDataTable cln = ((AGAPE_RFID_TDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TaggedItemsViewDataTable();
+                return new AGAPE_RFID_TDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -517,54 +517,54 @@ namespace agape_rfid_desktop {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow NewTaggedItemsViewRow() {
-                return ((TaggedItemsViewRow)(this.NewRow()));
+            public AGAPE_RFID_TRow NewAGAPE_RFID_TRow() {
+                return ((AGAPE_RFID_TRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TaggedItemsViewRow(builder);
+                return new AGAPE_RFID_TRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(TaggedItemsViewRow);
+                return typeof(AGAPE_RFID_TRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TaggedItemsViewRowChanged != null)) {
-                    this.TaggedItemsViewRowChanged(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowChanged != null)) {
+                    this.AGAPE_RFID_TRowChanged(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TaggedItemsViewRowChanging != null)) {
-                    this.TaggedItemsViewRowChanging(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowChanging != null)) {
+                    this.AGAPE_RFID_TRowChanging(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TaggedItemsViewRowDeleted != null)) {
-                    this.TaggedItemsViewRowDeleted(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowDeleted != null)) {
+                    this.AGAPE_RFID_TRowDeleted(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TaggedItemsViewRowDeleting != null)) {
-                    this.TaggedItemsViewRowDeleting(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowDeleting != null)) {
+                    this.AGAPE_RFID_TRowDeleting(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveTaggedItemsViewRow(TaggedItemsViewRow row) {
+            public void RemoveAGAPE_RFID_TRow(AGAPE_RFID_TRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -590,7 +590,7 @@ namespace agape_rfid_desktop {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TaggedItemsViewDataTable";
+                attribute2.FixedValue = "AGAPE_RFID_TDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -635,43 +635,43 @@ namespace agape_rfid_desktop {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class TaggedItemsViewRow : global::System.Data.DataRow {
+        public partial class AGAPE_RFID_TRow : global::System.Data.DataRow {
             
-            private TaggedItemsViewDataTable tableTaggedItemsView;
+            private AGAPE_RFID_TDataTable tableAGAPE_RFID_T;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal TaggedItemsViewRow(global::System.Data.DataRowBuilder rb) : 
+            internal AGAPE_RFID_TRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTaggedItemsView = ((TaggedItemsViewDataTable)(this.Table));
+                this.tableAGAPE_RFID_T = ((AGAPE_RFID_TDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string NumeroOrdine {
                 get {
-                    return ((string)(this[this.tableTaggedItemsView.NumeroOrdineColumn]));
+                    return ((string)(this[this.tableAGAPE_RFID_T.NumeroOrdineColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.NumeroOrdineColumn] = value;
+                    this[this.tableAGAPE_RFID_T.NumeroOrdineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public System.DateTime DataOrdine {
                 get {
-                    return ((global::System.DateTime)(this[this.tableTaggedItemsView.DataOrdineColumn]));
+                    return ((global::System.DateTime)(this[this.tableAGAPE_RFID_T.DataOrdineColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.DataOrdineColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DataOrdineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string ProgressivoArticolo {
                 get {
-                    return ((string)(this[this.tableTaggedItemsView.ProgressivoArticoloColumn]));
+                    return ((string)(this[this.tableAGAPE_RFID_T.ProgressivoArticoloColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.ProgressivoArticoloColumn] = value;
+                    this[this.tableAGAPE_RFID_T.ProgressivoArticoloColumn] = value;
                 }
             }
             
@@ -679,14 +679,14 @@ namespace agape_rfid_desktop {
             public string CodArt {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodArtColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodArtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodArt\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodArt\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodArtColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodArtColumn] = value;
                 }
             }
             
@@ -694,14 +694,14 @@ namespace agape_rfid_desktop {
             public string DescrizioneArticolo {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.DescrizioneArticoloColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescrizioneArticolo\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DescrizioneArticolo\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.DescrizioneArticoloColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn] = value;
                 }
             }
             
@@ -709,14 +709,14 @@ namespace agape_rfid_desktop {
             public string CodRivenditore {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodRivenditoreColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodRivenditoreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodRivenditore\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodRivenditore\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodRivenditoreColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodRivenditoreColumn] = value;
                 }
             }
             
@@ -724,15 +724,14 @@ namespace agape_rfid_desktop {
             public string AnagraficaRivenditore {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaRivenditore\' in table \'TaggedItemsView\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaRivenditore\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn] = value;
+                    this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn] = value;
                 }
             }
             
@@ -740,14 +739,14 @@ namespace agape_rfid_desktop {
             public string CodCliente {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodClienteColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodClienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodCliente\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodCliente\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodClienteColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodClienteColumn] = value;
                 }
             }
             
@@ -755,14 +754,14 @@ namespace agape_rfid_desktop {
             public string AnagraficaCliente {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.AnagraficaClienteColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaCliente\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaCliente\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.AnagraficaClienteColumn] = value;
+                    this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn] = value;
                 }
             }
             
@@ -770,14 +769,14 @@ namespace agape_rfid_desktop {
             public string CodMatricola {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodMatricolaColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodMatricolaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodMatricola\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodMatricola\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodMatricolaColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodMatricolaColumn] = value;
                 }
             }
             
@@ -785,95 +784,95 @@ namespace agape_rfid_desktop {
             public System.DateTime DataUscita {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableTaggedItemsView.DataUscitaColumn]));
+                        return ((global::System.DateTime)(this[this.tableAGAPE_RFID_T.DataUscitaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DataUscita\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataUscita\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.DataUscitaColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DataUscitaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodArtNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodArtColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodArtColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodArtNull() {
-                this[this.tableTaggedItemsView.CodArtColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodArtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsDescrizioneArticoloNull() {
-                return this.IsNull(this.tableTaggedItemsView.DescrizioneArticoloColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.DescrizioneArticoloColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDescrizioneArticoloNull() {
-                this[this.tableTaggedItemsView.DescrizioneArticoloColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodRivenditoreNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodRivenditoreColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodRivenditoreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodRivenditoreNull() {
-                this[this.tableTaggedItemsView.CodRivenditoreColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodRivenditoreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsAnagraficaRivenditoreNull() {
-                return this.IsNull(this.tableTaggedItemsView.AnagraficaRivenditoreColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetAnagraficaRivenditoreNull() {
-                this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodClienteNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodClienteColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodClienteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodClienteNull() {
-                this[this.tableTaggedItemsView.CodClienteColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodClienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsAnagraficaClienteNull() {
-                return this.IsNull(this.tableTaggedItemsView.AnagraficaClienteColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.AnagraficaClienteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetAnagraficaClienteNull() {
-                this[this.tableTaggedItemsView.AnagraficaClienteColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodMatricolaNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodMatricolaColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodMatricolaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodMatricolaNull() {
-                this[this.tableTaggedItemsView.CodMatricolaColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodMatricolaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsDataUscitaNull() {
-                return this.IsNull(this.tableTaggedItemsView.DataUscitaColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.DataUscitaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDataUscitaNull() {
-                this[this.tableTaggedItemsView.DataUscitaColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.DataUscitaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -881,20 +880,20 @@ namespace agape_rfid_desktop {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class TaggedItemsViewRowChangeEvent : global::System.EventArgs {
+        public class AGAPE_RFID_TRowChangeEvent : global::System.EventArgs {
             
-            private TaggedItemsViewRow eventRow;
+            private AGAPE_RFID_TRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRowChangeEvent(TaggedItemsViewRow row, global::System.Data.DataRowAction action) {
+            public AGAPE_RFID_TRowChangeEvent(AGAPE_RFID_TRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow Row {
+            public AGAPE_RFID_TRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -922,7 +921,7 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TaggedItemsViewTableAdapter : global::System.ComponentModel.Component {
+    public partial class AGAPE_RFID_TTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -935,7 +934,7 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public TaggedItemsViewTableAdapter() {
+        public AGAPE_RFID_TTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1026,7 +1025,7 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TaggedItemsView";
+            tableMapping.DataSetTable = "AGAPE_RFID_T";
             tableMapping.ColumnMappings.Add("NumeroOrdine", "NumeroOrdine");
             tableMapping.ColumnMappings.Add("DataOrdine", "DataOrdine");
             tableMapping.ColumnMappings.Add("ProgressivoArticolo", "ProgressivoArticolo");
@@ -1041,101 +1040,420 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[TaggedItemsView] WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo) AND ((@IsNull_CodArt = 1 AND [CodArt] IS NULL) OR ([CodArt] = @Original_CodArt)) AND ((@IsNull_DescrizioneArticolo = 1 AND [DescrizioneArticolo] IS NULL) OR ([DescrizioneArticolo] = @Original_DescrizioneArticolo)) AND ((@IsNull_CodRivenditore = 1 AND [CodRivenditore] IS NULL) OR ([CodRivenditore] = @Original_CodRivenditore)) AND ((@IsNull_AnagraficaRivenditore = 1 AND [AnagraficaRivenditore] IS NULL) OR ([AnagraficaRivenditore] = @Original_AnagraficaRivenditore)) AND ((@IsNull_CodCliente = 1 AND [CodCliente] IS NULL) OR ([CodCliente] = @Original_CodCliente)) AND ((@IsNull_AnagraficaCliente = 1 AND [AnagraficaCliente] IS NULL) OR ([AnagraficaCliente] = @Original_AnagraficaCliente)) AND ((@IsNull_CodMatricola = 1 AND [CodMatricola] IS NULL) OR ([CodMatricola] = @Original_CodMatricola)) AND ((@IsNull_DataUscita = 1 AND [DataUscita] IS NULL) OR ([DataUscita] = @Original_DataUscita)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[AGAPE_RFID_T] WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo) AND ((@IsNull_CodArt = 1 AND [CodArt] IS NULL) OR ([CodArt] = @Original_CodArt)) AND ((@IsNull_DescrizioneArticolo = 1 AND [DescrizioneArticolo] IS NULL) OR ([DescrizioneArticolo] = @Original_DescrizioneArticolo)) AND ((@IsNull_CodRivenditore = 1 AND [CodRivenditore] IS NULL) OR ([CodRivenditore] = @Original_CodRivenditore)) AND ((@IsNull_AnagraficaRivenditore = 1 AND [AnagraficaRivenditore] IS NULL) OR ([AnagraficaRivenditore] = @Original_AnagraficaRivenditore)) AND ((@IsNull_CodCliente = 1 AND [CodCliente] IS NULL) OR ([CodCliente] = @Original_CodCliente)) AND ((@IsNull_AnagraficaCliente = 1 AND [AnagraficaCliente] IS NULL) OR ([AnagraficaCliente] = @Original_AnagraficaCliente)) AND ((@IsNull_CodMatricola = 1 AND [CodMatricola] IS NULL) OR ([CodMatricola] = @Original_CodMatricola)) AND ((@IsNull_DataUscita = 1 AND [DataUscita] IS NULL) OR ([DataUscita] = @Original_DataUscita)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumeroOrdine", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroOrdine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataOrdine", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataOrdine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProgressivoArticolo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProgressivoArticolo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DescrizioneArticolo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DescrizioneArticolo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodRivenditore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodRivenditore", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnagraficaRivenditore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnagraficaRivenditore", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodCliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnagraficaCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnagraficaCliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodMatricola", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodMatricola", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataUscita", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataUscita", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_NumeroOrdine";
+            param.IsNullable = true;
+            param.SourceColumn = "NumeroOrdine";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DataOrdine";
+            param.DbType = global::System.Data.DbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DataOrdine";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_ProgressivoArticolo";
+            param.IsNullable = true;
+            param.SourceColumn = "ProgressivoArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodArt";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodArt";
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_DescrizioneArticolo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DescrizioneArticolo";
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodRivenditore";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodRivenditore";
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_AnagraficaRivenditore";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_AnagraficaRivenditore";
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodCliente";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodCliente";
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_AnagraficaCliente";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_AnagraficaCliente";
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodMatricola";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodMatricola";
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_DataUscita";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DataUscita";
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TaggedItemsView] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
-SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM TaggedItemsView WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[AGAPE_RFID_T] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
+SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumeroOrdine", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroOrdine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataOrdine", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataOrdine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProgressivoArticolo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProgressivoArticolo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DescrizioneArticolo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodRivenditore", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnagraficaRivenditore", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodCliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnagraficaCliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodMatricola", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataUscita", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@NumeroOrdine";
+            param.IsNullable = true;
+            param.SourceColumn = "NumeroOrdine";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DataOrdine";
+            param.DbType = global::System.Data.DbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DataOrdine";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@ProgressivoArticolo";
+            param.IsNullable = true;
+            param.SourceColumn = "ProgressivoArticolo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodArt";
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DescrizioneArticolo";
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodRivenditore";
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@AnagraficaRivenditore";
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodCliente";
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@AnagraficaCliente";
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodMatricola";
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DataUscita";
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE    TaggedItemsView\r\nSET              NumeroOrdine = @NumeroOrdine, DataOrd" +
-                "ine = @DataOrdine, ProgressivoArticolo = @ProgressivoArticolo, CodArt = @CodArt," +
-                " \r\n                      DescrizioneArticolo = @DescrizioneArticolo, CodRivendit" +
-                "ore = @CodRivenditore, AnagraficaRivenditore = @AnagraficaRivenditore, \r\n       " +
-                "               CodCliente = @CodCliente, AnagraficaCliente = @AnagraficaCliente," +
-                " CodMatricola = @CodMatricola, DataUscita = @DataUscita\r\nWHERE     (NumeroOrdine" +
-                " = @Original_NumeroOrdine) AND (DataOrdine = @Original_DataOrdine) AND (Progress" +
-                "ivoArticolo = @Original_ProgressivoArticolo) AND\r\n                       (@IsNul" +
-                "l_CodArt = 1 AND CodArt IS NULL OR\r\n                      CodArt = @Original_Cod" +
-                "Art) AND (@IsNull_DescrizioneArticolo = 1 AND DescrizioneArticolo IS NULL OR\r\n  " +
-                "                    DescrizioneArticolo = @Original_DescrizioneArticolo) AND (@I" +
-                "sNull_CodRivenditore = 1 AND CodRivenditore IS NULL OR\r\n                      Co" +
-                "dRivenditore = @Original_CodRivenditore) AND (@IsNull_AnagraficaRivenditore = 1 " +
-                "AND AnagraficaRivenditore IS NULL OR\r\n                      AnagraficaRivenditor" +
-                "e = @Original_AnagraficaRivenditore) AND (@IsNull_CodCliente = 1 AND CodCliente " +
-                "IS NULL OR\r\n                      CodCliente = @Original_CodCliente) AND (@IsNul" +
-                "l_AnagraficaCliente = 1 AND AnagraficaCliente IS NULL OR\r\n                      " +
-                "AnagraficaCliente = @Original_AnagraficaCliente) AND (@IsNull_CodMatricola = 1 A" +
-                "ND CodMatricola IS NULL OR\r\n                      CodMatricola = @Original_CodMa" +
-                "tricola) AND (@IsNull_DataUscita = 1 AND DataUscita IS NULL OR\r\n                " +
-                "      DataUscita = @Original_DataUscita); \r\nSELECT NumeroOrdine, DataOrdine, Pro" +
-                "gressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivendi" +
-                "tore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM TaggedItemsVi" +
-                "ew WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (Prog" +
-                "ressivoArticolo = @ProgressivoArticolo)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE AGAPE_RFID_T SET" +
+                "NumeroOrdine = @NumeroOrdine, DataOrdine = @DataOrdine, ProgressivoArticolo = @ProgressivoArticolo,"+
+                "CodArt = @CodArt,DescrizioneArticolo = @DescrizioneArticolo, CodRivenditore = @CodRivenditore,"+
+                "AnagraficaRivenditore = @AnagraficaRivenditore,CodCliente = @CodCliente, AnagraficaCliente = @AnagraficaCliente," +
+                "CodMatricola = @CodMatricola, DataUscita = @DataUscita WHERE (NumeroOrdine = @Original_NumeroOrdine) AND (DataOrdine = @Original_DataOrdine)"+
+                "AND (ProgressivoArticolo = @Original_ProgressivoArticolo); SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo,"+
+                "CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola,"+
+                "DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumeroOrdine", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroOrdine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataOrdine", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DataOrdine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProgressivoArticolo", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ProgressivoArticolo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodArt", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DescrizioneArticolo", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodRivenditore", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnagraficaRivenditore", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodCliente", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnagraficaCliente", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodMatricola", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataUscita", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumeroOrdine", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroOrdine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataOrdine", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DataOrdine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProgressivoArticolo", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ProgressivoArticolo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodArt", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DescrizioneArticolo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DescrizioneArticolo", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DescrizioneArticolo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodRivenditore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodRivenditore", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodRivenditore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnagraficaRivenditore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnagraficaRivenditore", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaRivenditore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodCliente", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnagraficaCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnagraficaCliente", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AnagraficaCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CodMatricola", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CodMatricola", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataUscita", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataUscita", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DataUscita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@NumeroOrdine";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "NumeroOrdine";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DataOrdine";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.Size = 3;
+            param.IsNullable = true;
+            param.SourceColumn = "DataOrdine";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@ProgressivoArticolo";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "ProgressivoArticolo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodArt";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DescrizioneArticolo";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodRivenditore";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@AnagraficaRivenditore";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodCliente";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@AnagraficaCliente";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodMatricola";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DataUscita";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_NumeroOrdine";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "NumeroOrdine";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DataOrdine";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.Size = 3;
+            param.IsNullable = true;
+            param.SourceColumn = "DataOrdine";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_ProgressivoArticolo";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "ProgressivoArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodArt";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodArt";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodArt";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_DescrizioneArticolo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DescrizioneArticolo";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "DescrizioneArticolo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodRivenditore";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodRivenditore";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_AnagraficaRivenditore";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_AnagraficaRivenditore";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaRivenditore";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodCliente";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodCliente";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_AnagraficaCliente";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_AnagraficaCliente";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "AnagraficaCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_CodMatricola";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_CodMatricola";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@IsNull_DataUscita";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@Original_DataUscita";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "DataUscita";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1151,21 +1469,26 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo" +
                 ", CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatri" +
-                "cola, DataUscita FROM dbo.TaggedItemsView";
+                "cola, DataUscita FROM dbo.AGAPE_RFID_T";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT AnagraficaCliente, AnagraficaRivenditore, CodArt, CodCliente, CodMatricola" +
                 ", CodRivenditore, DataOrdine, DataUscita, DescrizioneArticolo, NumeroOrdine, Pro" +
-                "gressivoArticolo FROM TaggedItemsView WHERE (CodMatricola = @CodMatricola)";
+                "gressivoArticolo FROM AGAPE_RFID_T WHERE (CodMatricola = @CodMatricola)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CodMatricola", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CodMatricola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@CodMatricola";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "CodMatricola";
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(agapeTaggedItemsDS.TaggedItemsViewDataTable dataTable) {
+        public virtual int Fill(agapeTaggedItemsDS.AGAPE_RFID_TDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1177,9 +1500,9 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual agapeTaggedItemsDS.TaggedItemsViewDataTable GetData() {
+        public virtual agapeTaggedItemsDS.AGAPE_RFID_TDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            agapeTaggedItemsDS.TaggedItemsViewDataTable dataTable = new agapeTaggedItemsDS.TaggedItemsViewDataTable();
+            agapeTaggedItemsDS.AGAPE_RFID_TDataTable dataTable = new agapeTaggedItemsDS.AGAPE_RFID_TDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1187,7 +1510,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCodMatricola(agapeTaggedItemsDS.TaggedItemsViewDataTable dataTable, string CodMatricola) {
+        public virtual int FillByCodMatricola(agapeTaggedItemsDS.AGAPE_RFID_TDataTable dataTable, string CodMatricola) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((CodMatricola == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -1205,7 +1528,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual agapeTaggedItemsDS.TaggedItemsViewDataTable GetDataBy(string CodMatricola) {
+        public virtual agapeTaggedItemsDS.AGAPE_RFID_TDataTable GetDataBy(string CodMatricola) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((CodMatricola == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -1213,21 +1536,21 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CodMatricola));
             }
-            agapeTaggedItemsDS.TaggedItemsViewDataTable dataTable = new agapeTaggedItemsDS.TaggedItemsViewDataTable();
+            agapeTaggedItemsDS.AGAPE_RFID_TDataTable dataTable = new agapeTaggedItemsDS.AGAPE_RFID_TDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(agapeTaggedItemsDS.TaggedItemsViewDataTable dataTable) {
+        public virtual int Update(agapeTaggedItemsDS.AGAPE_RFID_TDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(agapeTaggedItemsDS dataSet) {
-            return this.Adapter.Update(dataSet, "TaggedItemsView");
+            return this.Adapter.Update(dataSet, "AGAPE_RFID_T");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1651,7 +1974,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         
         private UpdateOrderOption _updateOrder;
         
-        private TaggedItemsViewTableAdapter _taggedItemsViewTableAdapter;
+        private AGAPE_RFID_TTableAdapter _aGAPE_RFID_TTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1671,12 +1994,12 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
             "", "System.Drawing.Design.UITypeEditor")]
-        public TaggedItemsViewTableAdapter TaggedItemsViewTableAdapter {
+        public AGAPE_RFID_TTableAdapter AGAPE_RFID_TTableAdapter {
             get {
-                return this._taggedItemsViewTableAdapter;
+                return this._aGAPE_RFID_TTableAdapter;
             }
             set {
-                this._taggedItemsViewTableAdapter = value;
+                this._aGAPE_RFID_TTableAdapter = value;
             }
         }
         
@@ -1697,9 +2020,9 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._taggedItemsViewTableAdapter != null) 
-                            && (this._taggedItemsViewTableAdapter.Connection != null))) {
-                    return this._taggedItemsViewTableAdapter.Connection;
+                if (((this._aGAPE_RFID_TTableAdapter != null) 
+                            && (this._aGAPE_RFID_TTableAdapter.Connection != null))) {
+                    return this._aGAPE_RFID_TTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1713,7 +2036,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._taggedItemsViewTableAdapter != null)) {
+                if ((this._aGAPE_RFID_TTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1726,12 +2049,12 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateUpdatedRows(agapeTaggedItemsDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taggedItemsViewTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TaggedItemsView.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._aGAPE_RFID_TTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AGAPE_RFID_T.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._taggedItemsViewTableAdapter.Update(updatedRows));
+                    result = (result + this._aGAPE_RFID_TTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1744,11 +2067,11 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateInsertedRows(agapeTaggedItemsDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._taggedItemsViewTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TaggedItemsView.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._aGAPE_RFID_TTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AGAPE_RFID_T.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._taggedItemsViewTableAdapter.Update(addedRows));
+                    result = (result + this._aGAPE_RFID_TTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1761,11 +2084,11 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateDeletedRows(agapeTaggedItemsDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._taggedItemsViewTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TaggedItemsView.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._aGAPE_RFID_TTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AGAPE_RFID_T.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._taggedItemsViewTableAdapter.Update(deletedRows));
+                    result = (result + this._aGAPE_RFID_TTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1806,8 +2129,8 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._taggedItemsViewTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._taggedItemsViewTableAdapter.Connection) == false))) {
+            if (((this._aGAPE_RFID_TTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._aGAPE_RFID_TTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1843,13 +2166,13 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._taggedItemsViewTableAdapter != null)) {
-                    revertConnections.Add(this._taggedItemsViewTableAdapter, this._taggedItemsViewTableAdapter.Connection);
-                    this._taggedItemsViewTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._taggedItemsViewTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._taggedItemsViewTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._taggedItemsViewTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._taggedItemsViewTableAdapter.Adapter);
+                if ((this._aGAPE_RFID_TTableAdapter != null)) {
+                    revertConnections.Add(this._aGAPE_RFID_TTableAdapter, this._aGAPE_RFID_TTableAdapter.Connection);
+                    this._aGAPE_RFID_TTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._aGAPE_RFID_TTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._aGAPE_RFID_TTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._aGAPE_RFID_TTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._aGAPE_RFID_TTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1910,9 +2233,9 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._taggedItemsViewTableAdapter != null)) {
-                    this._taggedItemsViewTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taggedItemsViewTableAdapter]));
-                    this._taggedItemsViewTableAdapter.Transaction = null;
+                if ((this._aGAPE_RFID_TTableAdapter != null)) {
+                    this._aGAPE_RFID_TTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._aGAPE_RFID_TTableAdapter]));
+                    this._aGAPE_RFID_TTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

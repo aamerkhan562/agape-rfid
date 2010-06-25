@@ -82,7 +82,7 @@ namespace agape_rfid_desktop
             this.itRbtn = new System.Windows.Forms.RadioButton();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.taggedItemsViewTableAdapter = new agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.TaggedItemsViewTableAdapter();
+            this.AGAPE_RFID_TTableAdapter = new agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.AGAPE_RFID_TTableAdapter();
             this.groupBox1.SuspendLayout();
             this.tabPane.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -233,7 +233,7 @@ namespace agape_rfid_desktop
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataMember = "TaggedItemsView";
+            this.bindingSource1.DataMember = "AGAPE_RFID_T";
             this.bindingSource1.DataSource = this.agapeTaggedItemsDS;
             // 
             // agapeTaggedItemsDS
@@ -325,7 +325,7 @@ namespace agape_rfid_desktop
             // 
             // codartTxt
             // 
-            this.codartTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeTaggedItemsDS, "TaggedItemsView.CodArt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.codartTxt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeTaggedItemsDS, "AGAPE_RFID_T.CodArt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.codartTxt.Location = new System.Drawing.Point(158, 20);
             this.codartTxt.Name = "codartTxt";
             this.codartTxt.Size = new System.Drawing.Size(142, 20);
@@ -597,9 +597,9 @@ namespace agape_rfid_desktop
             this.openFileDialog1.Filter = "PNG files|*.png|GIF files|*.gif|JPEG files|*.jpg";
             this.openFileDialog1.InitialDirectory = "\\\\";
             // 
-            // taggedItemsViewTableAdapter
+            // AGAPE_RFID_TTableAdapter
             // 
-            this.taggedItemsViewTableAdapter.ClearBeforeFill = true;
+            this.AGAPE_RFID_TTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -679,7 +679,7 @@ namespace agape_rfid_desktop
         private System.Windows.Forms.RadioButton itRbtn;
         private System.Windows.Forms.Button printBtn;
         private agapeTaggedItemsDS agapeTaggedItemsDS;
-        private agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.TaggedItemsViewTableAdapter taggedItemsViewTableAdapter;
+        private agape_rfid_desktop.agapeTaggedItemsDSTableAdapters.AGAPE_RFID_TTableAdapter AGAPE_RFID_TTableAdapter;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button browseBtn;

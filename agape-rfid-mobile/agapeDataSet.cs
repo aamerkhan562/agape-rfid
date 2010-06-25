@@ -2,7 +2,7 @@
     
     
     public partial class agapeDataSet {
-        partial class ItemsViewDataTable
+        partial class AGAPE_RFIDDataTable
         {
         }
     }

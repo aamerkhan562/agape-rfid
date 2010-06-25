@@ -32,7 +32,7 @@
             this.cercaBtn = new System.Windows.Forms.Button();
             this.orderNumTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.itemsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.agapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agapeDataSet = new agape_rfid_mobile.agapeDataSet();
             this.dataGrid1 = new System.Windows.Forms.DataGrid();
             this.dataGridTableStyle1 = new System.Windows.Forms.DataGridTableStyle();
@@ -40,13 +40,13 @@
             this.CodArt = new System.Windows.Forms.DataGridTextBoxColumn();
             this.CodRiv = new System.Windows.Forms.DataGridTextBoxColumn();
             this.CodCli = new System.Windows.Forms.DataGridTextBoxColumn();
-            this.itemsViewTableAdapter = new agape_rfid_mobile.agapeDataSetTableAdapters.ItemsViewTableAdapter();
+            this.AGAPE_RFIDTableAdapter = new agape_rfid_mobile.agapeDataSetTableAdapters.AGAPE_RFIDTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.scanBtn = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agapeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,10 +76,10 @@
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.Text = "# Ordine";
             // 
-            // itemsViewBindingSource
+            // agapeBindingSource
             // 
-            this.itemsViewBindingSource.DataMember = "ItemsView";
-            this.itemsViewBindingSource.DataSource = this.agapeDataSet;
+            this.agapeBindingSource.DataMember = "AGAPE_RFID";
+            this.agapeBindingSource.DataSource = this.agapeDataSet;
             // 
             // agapeDataSet
             // 
@@ -90,7 +90,7 @@
             // dataGrid1
             // 
             this.dataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGrid1.DataSource = this.itemsViewBindingSource;
+            this.dataGrid1.DataSource = this.agapeBindingSource;
             this.dataGrid1.Location = new System.Drawing.Point(3, 62);
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.RowHeadersVisible = false;
@@ -105,7 +105,7 @@
             this.dataGridTableStyle1.GridColumnStyles.Add(this.CodArt);
             this.dataGridTableStyle1.GridColumnStyles.Add(this.CodRiv);
             this.dataGridTableStyle1.GridColumnStyles.Add(this.CodCli);
-            this.dataGridTableStyle1.MappingName = "itemsView";
+            this.dataGridTableStyle1.MappingName = "AGAPE_RFID";
             // 
             // PrgArt
             // 
@@ -139,9 +139,9 @@
             this.CodCli.MappingName = "CodCliente";
             this.CodCli.Width = 60;
             // 
-            // itemsViewTableAdapter
+            // AGAPE_RFIDTableAdapter
             // 
-            this.itemsViewTableAdapter.ClearBeforeFill = true;
+            this.AGAPE_RFIDTableAdapter.ClearBeforeFill = true;
             // 
             // label2
             // 
@@ -152,7 +152,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsViewBindingSource, "DescrizioneArticolo", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeBindingSource, "DescrizioneArticolo", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.textBox1.Location = new System.Drawing.Point(3, 186);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -179,7 +179,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsViewBindingSource, "DataOrdine", true, System.Windows.Forms.DataSourceUpdateMode.Never, null, "d"));
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeBindingSource, "DataOrdine", true, System.Windows.Forms.DataSourceUpdateMode.Never, null, "d"));
             this.textBox2.Location = new System.Drawing.Point(68, 36);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -203,7 +203,7 @@
             this.Controls.Add(this.cercaBtn);
             this.Name = "OrderMD";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.itemsViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agapeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).EndInit();
             this.ResumeLayout(false);
 
@@ -216,8 +216,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGrid dataGrid1;
         private agapeDataSet agapeDataSet;
-        private System.Windows.Forms.BindingSource itemsViewBindingSource;
-        private agape_rfid_mobile.agapeDataSetTableAdapters.ItemsViewTableAdapter itemsViewTableAdapter;
+        private System.Windows.Forms.BindingSource agapeBindingSource;
+        private agape_rfid_mobile.agapeDataSetTableAdapters.AGAPE_RFIDTableAdapter AGAPE_RFIDTableAdapter;
         private System.Windows.Forms.DataGridTextBoxColumn PrgArt;
         private System.Windows.Forms.DataGridTextBoxColumn CodArt;
         private System.Windows.Forms.DataGridTextBoxColumn CodRiv;
