@@ -23,17 +23,6 @@ namespace agape_rfid_desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.2.0.200\\SQLEXPRESS;Initial Catalog=agape;User ID=agape1;Password=" +
-            "agape1")]
-        public string agapeConnectionString {
-            get {
-                return ((string)(this["agapeConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Desktop\\mint-lab\\desc")]
@@ -55,6 +44,17 @@ namespace agape_rfid_desktop.Properties {
             }
             set {
                 this["productDescriptionDataPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=santam.dyndns.org\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Pass" +
+            "word=agape")]
+        public string agapeConnectionString {
+            get {
+                return ((string)(this["agapeConnectionString"]));
             }
         }
     }

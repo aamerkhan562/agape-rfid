@@ -35,10 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer();
             this.cancButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.taggedItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.destDataSet = new agape_rfid_mobile.destDataSet();
-            this.taggedItemsViewTableAdapter1 = new agape_rfid_mobile.destDataSetTableAdapters.TaggedItemsViewTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AGAPE_RFID_TTableAdapter1 = new agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).BeginInit();
             this.SuspendLayout();
@@ -88,9 +88,16 @@
             this.cancButton.Text = "Annulla";
             this.cancButton.Click += new System.EventHandler(this.cancButton_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(60, 123);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 11;
+            // 
             // taggedItemsBindingSource
             // 
-            this.taggedItemsBindingSource.DataMember = "TaggedItemsView";
+            this.taggedItemsBindingSource.DataMember = "AGAPE_RFID_T";
             this.taggedItemsBindingSource.DataSource = this.destDataSet;
             // 
             // destDataSet
@@ -98,17 +105,6 @@
             this.destDataSet.DataSetName = "destDataSet";
             this.destDataSet.Prefix = "";
             this.destDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taggedItemsViewTableAdapter1
-            // 
-            this.taggedItemsViewTableAdapter1.ClearBeforeFill = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(60, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 11;
             // 
             // DataEntry
             // 
@@ -141,8 +137,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button cancButton;
-        private agape_rfid_mobile.destDataSetTableAdapters.TaggedItemsViewTableAdapter taggedItemsViewTableAdapter1;
         private destDataSet destDataSet;
         private System.Windows.Forms.TextBox textBox1;
+        private agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter AGAPE_RFID_TTableAdapter1;
     }
 }

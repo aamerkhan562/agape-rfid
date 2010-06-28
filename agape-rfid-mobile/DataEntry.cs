@@ -58,7 +58,7 @@ namespace agape_rfid_mobile
             {
                 try
                 {
-                    taggedItemsViewTableAdapter1.Insert((string)row["NumeroOrdine"], (DateTime)row["DataOrdine"], (string)row["ProgressivoArticolo"], (string)row["CodArt"], (string)row["DescrizioneArticolo"], (string)row["CodRivenditore"], (string)row["AnagraficaRivenditore"], (string)row["CodCliente"], (string)row["AnagraficaCliente"], uid, exitDate);
+                    AGAPE_RFID_TTableAdapter1.Insert((string)row["NumeroOrdine"], (DateTime)row["DataOrdine"], (string)row["ProgressivoArticolo"], (string)row["CodArt"], (string)row["DescrizioneArticolo"], (string)row["CodRivenditore"], (string)row["AnagraficaRivenditore"], (string)row["CodCliente"], (string)row["AnagraficaCliente"], uid, exitDate);
                 }
                 catch (Exception)
                 {

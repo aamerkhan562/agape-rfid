@@ -161,10 +161,13 @@ namespace agape_rfid_desktop
 
         private void browseBtn_Click_1(object sender, EventArgs e)
         {
-            this.openFileDialog1.ShowDialog();
-            this.photoPathTxt.Text = this.openFileDialog1.FileName;
-            this.details.PhotoPath = this.openFileDialog1.FileName;
-            this.picture.Image = new Bitmap(this.details.PhotoPath);
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                this.photoPathTxt.Text = this.openFileDialog1.FileName;
+                this.details.PhotoPath = this.openFileDialog1.FileName;
+                this.picture.Image = new Bitmap(this.details.PhotoPath);
+            }
         }
 
         private void loadField()

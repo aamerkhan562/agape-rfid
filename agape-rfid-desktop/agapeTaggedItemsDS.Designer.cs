@@ -1040,7 +1040,7 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[AGAPE_RFID_T] WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo) AND ((@IsNull_CodArt = 1 AND [CodArt] IS NULL) OR ([CodArt] = @Original_CodArt)) AND ((@IsNull_DescrizioneArticolo = 1 AND [DescrizioneArticolo] IS NULL) OR ([DescrizioneArticolo] = @Original_DescrizioneArticolo)) AND ((@IsNull_CodRivenditore = 1 AND [CodRivenditore] IS NULL) OR ([CodRivenditore] = @Original_CodRivenditore)) AND ((@IsNull_AnagraficaRivenditore = 1 AND [AnagraficaRivenditore] IS NULL) OR ([AnagraficaRivenditore] = @Original_AnagraficaRivenditore)) AND ((@IsNull_CodCliente = 1 AND [CodCliente] IS NULL) OR ([CodCliente] = @Original_CodCliente)) AND ((@IsNull_AnagraficaCliente = 1 AND [AnagraficaCliente] IS NULL) OR ([AnagraficaCliente] = @Original_AnagraficaCliente)) AND ((@IsNull_CodMatricola = 1 AND [CodMatricola] IS NULL) OR ([CodMatricola] = @Original_CodMatricola)) AND ((@IsNull_DataUscita = 1 AND [DataUscita] IS NULL) OR ([DataUscita] = @Original_DataUscita)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [AGAPE_RFID_T] WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo) AND ((@IsNull_CodArt = 1 AND [CodArt] IS NULL) OR ([CodArt] = @Original_CodArt)) AND ((@IsNull_DescrizioneArticolo = 1 AND [DescrizioneArticolo] IS NULL) OR ([DescrizioneArticolo] = @Original_DescrizioneArticolo)) AND ((@IsNull_CodRivenditore = 1 AND [CodRivenditore] IS NULL) OR ([CodRivenditore] = @Original_CodRivenditore)) AND ((@IsNull_AnagraficaRivenditore = 1 AND [AnagraficaRivenditore] IS NULL) OR ([AnagraficaRivenditore] = @Original_AnagraficaRivenditore)) AND ((@IsNull_CodCliente = 1 AND [CodCliente] IS NULL) OR ([CodCliente] = @Original_CodCliente)) AND ((@IsNull_AnagraficaCliente = 1 AND [AnagraficaCliente] IS NULL) OR ([AnagraficaCliente] = @Original_AnagraficaCliente)) AND ((@IsNull_CodMatricola = 1 AND [CodMatricola] IS NULL) OR ([CodMatricola] = @Original_CodMatricola)) AND ((@IsNull_DataUscita = 1 AND [DataUscita] IS NULL) OR ([DataUscita] = @Original_DataUscita)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_NumeroOrdine";
@@ -1169,13 +1169,14 @@ namespace agape_rfid_desktop.agapeTaggedItemsDSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DataUscita";
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataUscita";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[AGAPE_RFID_T] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AGAPE_RFID_T] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
 SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SqlClient.SqlParameter();
@@ -1231,105 +1232,108 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataUscita";
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataUscita";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE AGAPE_RFID_T SET" +
-                "NumeroOrdine = @NumeroOrdine, DataOrdine = @DataOrdine, ProgressivoArticolo = @ProgressivoArticolo,"+
-                "CodArt = @CodArt,DescrizioneArticolo = @DescrizioneArticolo, CodRivenditore = @CodRivenditore,"+
-                "AnagraficaRivenditore = @AnagraficaRivenditore,CodCliente = @CodCliente, AnagraficaCliente = @AnagraficaCliente," +
-                "CodMatricola = @CodMatricola, DataUscita = @DataUscita WHERE (NumeroOrdine = @Original_NumeroOrdine) AND (DataOrdine = @Original_DataOrdine)"+
-                "AND (ProgressivoArticolo = @Original_ProgressivoArticolo); SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo,"+
-                "CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola,"+
-                "DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [AGAPE_RFID_T] SET [NumeroOrdine] = @NumeroOrdine, [DataOrdine] = @DataOrd" +
+                "ine, [ProgressivoArticolo] = @ProgressivoArticolo, [CodArt] = @CodArt, [Descrizi" +
+                "oneArticolo] = @DescrizioneArticolo, [CodRivenditore] = @CodRivenditore, [Anagra" +
+                "ficaRivenditore] = @AnagraficaRivenditore, [CodCliente] = @CodCliente, [Anagrafi" +
+                "caCliente] = @AnagraficaCliente, [CodMatricola] = @CodMatricola, [DataUscita] = " +
+                "@DataUscita WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] =" +
+                " @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticol" +
+                "o) AND ((@IsNull_CodArt = 1 AND [CodArt] IS NULL) OR ([CodArt] = @Original_CodAr" +
+                "t)) AND ((@IsNull_DescrizioneArticolo = 1 AND [DescrizioneArticolo] IS NULL) OR " +
+                "([DescrizioneArticolo] = @Original_DescrizioneArticolo)) AND ((@IsNull_CodRivend" +
+                "itore = 1 AND [CodRivenditore] IS NULL) OR ([CodRivenditore] = @Original_CodRive" +
+                "nditore)) AND ((@IsNull_AnagraficaRivenditore = 1 AND [AnagraficaRivenditore] IS" +
+                " NULL) OR ([AnagraficaRivenditore] = @Original_AnagraficaRivenditore)) AND ((@Is" +
+                "Null_CodCliente = 1 AND [CodCliente] IS NULL) OR ([CodCliente] = @Original_CodCl" +
+                "iente)) AND ((@IsNull_AnagraficaCliente = 1 AND [AnagraficaCliente] IS NULL) OR " +
+                "([AnagraficaCliente] = @Original_AnagraficaCliente)) AND ((@IsNull_CodMatricola " +
+                "= 1 AND [CodMatricola] IS NULL) OR ([CodMatricola] = @Original_CodMatricola)) AN" +
+                "D ((@IsNull_DataUscita = 1 AND [DataUscita] IS NULL) OR ([DataUscita] = @Origina" +
+                "l_DataUscita)));\r\nSELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, " +
+                "DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, Anagrafi" +
+                "caCliente, CodMatricola, DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataO" +
+                "rdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @Progressiv" +
+                "oArticolo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "NumeroOrdine";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataOrdine";
-            param.DbType = global::System.Data.DbType.AnsiString;
-            param.Size = 3;
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@ProgressivoArticolo";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "ProgressivoArticolo";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@CodArt";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodArt";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DescrizioneArticolo";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "DescrizioneArticolo";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@CodRivenditore";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodRivenditore";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@AnagraficaRivenditore";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "AnagraficaRivenditore";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@CodCliente";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodCliente";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@AnagraficaCliente";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "AnagraficaCliente";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@CodMatricola";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodMatricola";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataUscita";
-            param.Size = 50;
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataUscita";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_NumeroOrdine";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "NumeroOrdine";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DataOrdine";
-            param.DbType = global::System.Data.DbType.AnsiString;
-            param.Size = 3;
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_ProgressivoArticolo";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "ProgressivoArticolo";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1344,7 +1348,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_CodArt";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodArt";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1359,7 +1362,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DescrizioneArticolo";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "DescrizioneArticolo";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1374,7 +1376,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_CodRivenditore";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodRivenditore";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1389,7 +1390,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_AnagraficaRivenditore";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "AnagraficaRivenditore";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1404,7 +1404,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_CodCliente";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1419,7 +1418,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_AnagraficaCliente";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "AnagraficaCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1434,7 +1432,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_CodMatricola";
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "CodMatricola";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1449,7 +1446,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_DataUscita";
-            param.Size = 50;
+            param.DbType = global::System.Data.DbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DataUscita";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -1467,15 +1464,16 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo" +
-                ", CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatri" +
-                "cola, DataUscita FROM dbo.AGAPE_RFID_T";
+            this._commandCollection[0].CommandText = "SELECT     NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArti" +
+                "colo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, \r\n  " +
+                "                    CodMatricola, DataUscita\r\nFROM         AGAPE_RFID_T";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT AnagraficaCliente, AnagraficaRivenditore, CodArt, CodCliente, CodMatricola" +
-                ", CodRivenditore, DataOrdine, DataUscita, DescrizioneArticolo, NumeroOrdine, Pro" +
-                "gressivoArticolo FROM AGAPE_RFID_T WHERE (CodMatricola = @CodMatricola)";
+            this._commandCollection[1].CommandText = @"SELECT     AnagraficaCliente, AnagraficaRivenditore, CodArt, CodCliente, CodMatricola, CodRivenditore, DataOrdine, DataUscita, DescrizioneArticolo, 
+                      NumeroOrdine, ProgressivoArticolo
+FROM         AGAPE_RFID_T
+WHERE     (CodMatricola = @CodMatricola)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@CodMatricola";
@@ -1564,400 +1562,6 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_NumeroOrdine, System.DateTime Original_DataOrdine, string Original_ProgressivoArticolo, string Original_CodArt, string Original_DescrizioneArticolo, string Original_CodRivenditore, string Original_AnagraficaRivenditore, string Original_CodCliente, string Original_AnagraficaCliente, string Original_CodMatricola, string Original_DataUscita) {
-            if ((Original_NumeroOrdine == null)) {
-                throw new global::System.ArgumentNullException("Original_NumeroOrdine");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_NumeroOrdine));
-            }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_DataOrdine));
-            if ((Original_ProgressivoArticolo == null)) {
-                throw new global::System.ArgumentNullException("Original_ProgressivoArticolo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ProgressivoArticolo));
-            }
-            if ((Original_CodArt == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_CodArt));
-            }
-            if ((Original_DescrizioneArticolo == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_DescrizioneArticolo));
-            }
-            if ((Original_CodRivenditore == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_CodRivenditore));
-            }
-            if ((Original_AnagraficaRivenditore == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_AnagraficaRivenditore));
-            }
-            if ((Original_CodCliente == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_CodCliente));
-            }
-            if ((Original_AnagraficaCliente == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_AnagraficaCliente));
-            }
-            if ((Original_CodMatricola == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_CodMatricola));
-            }
-            if ((Original_DataUscita == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_DataUscita));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, string DataUscita) {
-            if ((NumeroOrdine == null)) {
-                throw new global::System.ArgumentNullException("NumeroOrdine");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NumeroOrdine));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(DataOrdine));
-            if ((ProgressivoArticolo == null)) {
-                throw new global::System.ArgumentNullException("ProgressivoArticolo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
-            }
-            if ((CodArt == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CodArt));
-            }
-            if ((DescrizioneArticolo == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(DescrizioneArticolo));
-            }
-            if ((CodRivenditore == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CodRivenditore));
-            }
-            if ((AnagraficaRivenditore == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(AnagraficaRivenditore));
-            }
-            if ((CodCliente == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CodCliente));
-            }
-            if ((AnagraficaCliente == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AnagraficaCliente));
-            }
-            if ((CodMatricola == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(CodMatricola));
-            }
-            if ((DataUscita == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(DataUscita));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string NumeroOrdine, 
-                    string DataOrdine, 
-                    string ProgressivoArticolo, 
-                    string CodArt, 
-                    string DescrizioneArticolo, 
-                    string CodRivenditore, 
-                    string AnagraficaRivenditore, 
-                    string CodCliente, 
-                    string AnagraficaCliente, 
-                    string CodMatricola, 
-                    string DataUscita, 
-                    string Original_NumeroOrdine, 
-                    string Original_DataOrdine, 
-                    string Original_ProgressivoArticolo, 
-                    string Original_CodArt, 
-                    string Original_DescrizioneArticolo, 
-                    string Original_CodRivenditore, 
-                    string Original_AnagraficaRivenditore, 
-                    string Original_CodCliente, 
-                    string Original_AnagraficaCliente, 
-                    string Original_CodMatricola, 
-                    string Original_DataUscita) {
-            if ((NumeroOrdine == null)) {
-                throw new global::System.ArgumentNullException("NumeroOrdine");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NumeroOrdine));
-            }
-            if ((DataOrdine == null)) {
-                throw new global::System.ArgumentNullException("DataOrdine");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(DataOrdine));
-            }
-            if ((ProgressivoArticolo == null)) {
-                throw new global::System.ArgumentNullException("ProgressivoArticolo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
-            }
-            if ((CodArt == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CodArt));
-            }
-            if ((DescrizioneArticolo == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(DescrizioneArticolo));
-            }
-            if ((CodRivenditore == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CodRivenditore));
-            }
-            if ((AnagraficaRivenditore == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(AnagraficaRivenditore));
-            }
-            if ((CodCliente == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CodCliente));
-            }
-            if ((AnagraficaCliente == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AnagraficaCliente));
-            }
-            if ((CodMatricola == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CodMatricola));
-            }
-            if ((DataUscita == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(DataUscita));
-            }
-            if ((Original_NumeroOrdine == null)) {
-                throw new global::System.ArgumentNullException("Original_NumeroOrdine");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_NumeroOrdine));
-            }
-            if ((Original_DataOrdine == null)) {
-                throw new global::System.ArgumentNullException("Original_DataOrdine");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_DataOrdine));
-            }
-            if ((Original_ProgressivoArticolo == null)) {
-                throw new global::System.ArgumentNullException("Original_ProgressivoArticolo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_ProgressivoArticolo));
-            }
-            if ((Original_CodArt == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_CodArt));
-            }
-            if ((Original_DescrizioneArticolo == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DescrizioneArticolo));
-            }
-            if ((Original_CodRivenditore == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_CodRivenditore));
-            }
-            if ((Original_AnagraficaRivenditore == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_AnagraficaRivenditore));
-            }
-            if ((Original_CodCliente == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_CodCliente));
-            }
-            if ((Original_AnagraficaCliente == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_AnagraficaCliente));
-            }
-            if ((Original_CodMatricola == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_CodMatricola));
-            }
-            if ((Original_DataUscita == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_DataUscita));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string CodArt, 
-                    string DescrizioneArticolo, 
-                    string CodRivenditore, 
-                    string AnagraficaRivenditore, 
-                    string CodCliente, 
-                    string AnagraficaCliente, 
-                    string CodMatricola, 
-                    string DataUscita, 
-                    string Original_NumeroOrdine, 
-                    string Original_DataOrdine, 
-                    string Original_ProgressivoArticolo, 
-                    string Original_CodArt, 
-                    string Original_DescrizioneArticolo, 
-                    string Original_CodRivenditore, 
-                    string Original_AnagraficaRivenditore, 
-                    string Original_CodCliente, 
-                    string Original_AnagraficaCliente, 
-                    string Original_CodMatricola, 
-                    string Original_DataUscita) {
-            return this.Update(Original_NumeroOrdine, Original_DataOrdine, Original_ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita, Original_NumeroOrdine, Original_DataOrdine, Original_ProgressivoArticolo, Original_CodArt, Original_DescrizioneArticolo, Original_CodRivenditore, Original_AnagraficaRivenditore, Original_CodCliente, Original_AnagraficaCliente, Original_CodMatricola, Original_DataUscita);
         }
     }
     

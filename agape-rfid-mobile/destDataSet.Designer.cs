@@ -24,7 +24,7 @@ namespace agape_rfid_mobile {
     [global::System.Xml.Serialization.XmlRootAttribute("destDataSet")]
     public partial class destDataSet : global::System.Data.DataSet {
         
-        private TaggedItemsViewDataTable tableTaggedItemsView;
+        private AGAPE_RFID_TDataTable tableAGAPE_RFID_T;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -39,9 +39,9 @@ namespace agape_rfid_mobile {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public TaggedItemsViewDataTable TaggedItemsView {
+        public AGAPE_RFID_TDataTable AGAPE_RFID_T {
             get {
-                return this.tableTaggedItemsView;
+                return this.tableAGAPE_RFID_T;
             }
         }
         
@@ -100,8 +100,8 @@ namespace agape_rfid_mobile {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TaggedItemsView"] != null)) {
-                    base.Tables.Add(new TaggedItemsViewDataTable(ds.Tables["TaggedItemsView"]));
+                if ((ds.Tables["AGAPE_RFID_T"] != null)) {
+                    base.Tables.Add(new AGAPE_RFID_TDataTable(ds.Tables["AGAPE_RFID_T"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -133,10 +133,10 @@ namespace agape_rfid_mobile {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         internal void InitVars(bool initTable) {
-            this.tableTaggedItemsView = ((TaggedItemsViewDataTable)(base.Tables["TaggedItemsView"]));
+            this.tableAGAPE_RFID_T = ((AGAPE_RFID_TDataTable)(base.Tables["AGAPE_RFID_T"]));
             if ((initTable == true)) {
-                if ((this.tableTaggedItemsView != null)) {
-                    this.tableTaggedItemsView.InitVars();
+                if ((this.tableAGAPE_RFID_T != null)) {
+                    this.tableAGAPE_RFID_T.InitVars();
                 }
             }
         }
@@ -148,12 +148,12 @@ namespace agape_rfid_mobile {
             this.Namespace = "http://tempuri.org/destDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTaggedItemsView = new TaggedItemsViewDataTable();
-            base.Tables.Add(this.tableTaggedItemsView);
+            this.tableAGAPE_RFID_T = new AGAPE_RFID_TDataTable();
+            base.Tables.Add(this.tableAGAPE_RFID_T);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeTaggedItemsView() {
+        private bool ShouldSerializeAGAPE_RFID_T() {
             return false;
         }
         
@@ -210,13 +210,13 @@ namespace agape_rfid_mobile {
             return type;
         }
         
-        public delegate void TaggedItemsViewRowChangeEventHandler(object sender, TaggedItemsViewRowChangeEvent e);
+        public delegate void AGAPE_RFID_TRowChangeEventHandler(object sender, AGAPE_RFID_TRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TaggedItemsViewDataTable : global::System.Data.TypedTableBase<TaggedItemsViewRow> {
+        public partial class AGAPE_RFID_TDataTable : global::System.Data.TypedTableBase<AGAPE_RFID_TRow> {
             
             private global::System.Data.DataColumn columnNumeroOrdine;
             
@@ -241,15 +241,15 @@ namespace agape_rfid_mobile {
             private global::System.Data.DataColumn columnDataUscita;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewDataTable() {
-                this.TableName = "TaggedItemsView";
+            public AGAPE_RFID_TDataTable() {
+                this.TableName = "AGAPE_RFID_T";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal TaggedItemsViewDataTable(global::System.Data.DataTable table) {
+            internal AGAPE_RFID_TDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -349,28 +349,28 @@ namespace agape_rfid_mobile {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow this[int index] {
+            public AGAPE_RFID_TRow this[int index] {
                 get {
-                    return ((TaggedItemsViewRow)(this.Rows[index]));
+                    return ((AGAPE_RFID_TRow)(this.Rows[index]));
                 }
             }
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowChanging;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowChanging;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowChanged;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowChanged;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowDeleting;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowDeleting;
             
-            public event TaggedItemsViewRowChangeEventHandler TaggedItemsViewRowDeleted;
+            public event AGAPE_RFID_TRowChangeEventHandler AGAPE_RFID_TRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddTaggedItemsViewRow(TaggedItemsViewRow row) {
+            public void AddAGAPE_RFID_TRow(AGAPE_RFID_TRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow AddTaggedItemsViewRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, System.DateTime DataUscita) {
-                TaggedItemsViewRow rowTaggedItemsViewRow = ((TaggedItemsViewRow)(this.NewRow()));
+            public AGAPE_RFID_TRow AddAGAPE_RFID_TRow(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string CodMatricola, System.DateTime DataUscita) {
+                AGAPE_RFID_TRow rowAGAPE_RFID_TRow = ((AGAPE_RFID_TRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NumeroOrdine,
                         DataOrdine,
@@ -383,14 +383,14 @@ namespace agape_rfid_mobile {
                         AnagraficaCliente,
                         CodMatricola,
                         DataUscita};
-                rowTaggedItemsViewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTaggedItemsViewRow);
-                return rowTaggedItemsViewRow;
+                rowAGAPE_RFID_TRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAGAPE_RFID_TRow);
+                return rowAGAPE_RFID_TRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow FindByNumeroOrdineDataOrdineProgressivoArticolo(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
-                return ((TaggedItemsViewRow)(this.Rows.Find(new object[] {
+            public AGAPE_RFID_TRow FindByNumeroOrdineDataOrdineProgressivoArticolo(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
+                return ((AGAPE_RFID_TRow)(this.Rows.Find(new object[] {
                             NumeroOrdine,
                             DataOrdine,
                             ProgressivoArticolo})));
@@ -398,14 +398,14 @@ namespace agape_rfid_mobile {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                TaggedItemsViewDataTable cln = ((TaggedItemsViewDataTable)(base.Clone()));
+                AGAPE_RFID_TDataTable cln = ((AGAPE_RFID_TDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TaggedItemsViewDataTable();
+                return new AGAPE_RFID_TDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -466,54 +466,54 @@ namespace agape_rfid_mobile {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow NewTaggedItemsViewRow() {
-                return ((TaggedItemsViewRow)(this.NewRow()));
+            public AGAPE_RFID_TRow NewAGAPE_RFID_TRow() {
+                return ((AGAPE_RFID_TRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TaggedItemsViewRow(builder);
+                return new AGAPE_RFID_TRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(TaggedItemsViewRow);
+                return typeof(AGAPE_RFID_TRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TaggedItemsViewRowChanged != null)) {
-                    this.TaggedItemsViewRowChanged(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowChanged != null)) {
+                    this.AGAPE_RFID_TRowChanged(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TaggedItemsViewRowChanging != null)) {
-                    this.TaggedItemsViewRowChanging(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowChanging != null)) {
+                    this.AGAPE_RFID_TRowChanging(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TaggedItemsViewRowDeleted != null)) {
-                    this.TaggedItemsViewRowDeleted(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowDeleted != null)) {
+                    this.AGAPE_RFID_TRowDeleted(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TaggedItemsViewRowDeleting != null)) {
-                    this.TaggedItemsViewRowDeleting(this, new TaggedItemsViewRowChangeEvent(((TaggedItemsViewRow)(e.Row)), e.Action));
+                if ((this.AGAPE_RFID_TRowDeleting != null)) {
+                    this.AGAPE_RFID_TRowDeleting(this, new AGAPE_RFID_TRowChangeEvent(((AGAPE_RFID_TRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveTaggedItemsViewRow(TaggedItemsViewRow row) {
+            public void RemoveAGAPE_RFID_TRow(AGAPE_RFID_TRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -539,7 +539,7 @@ namespace agape_rfid_mobile {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TaggedItemsViewDataTable";
+                attribute2.FixedValue = "AGAPE_RFID_TDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -583,43 +583,43 @@ namespace agape_rfid_mobile {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TaggedItemsViewRow : global::System.Data.DataRow {
+        public partial class AGAPE_RFID_TRow : global::System.Data.DataRow {
             
-            private TaggedItemsViewDataTable tableTaggedItemsView;
+            private AGAPE_RFID_TDataTable tableAGAPE_RFID_T;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal TaggedItemsViewRow(global::System.Data.DataRowBuilder rb) : 
+            internal AGAPE_RFID_TRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTaggedItemsView = ((TaggedItemsViewDataTable)(this.Table));
+                this.tableAGAPE_RFID_T = ((AGAPE_RFID_TDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string NumeroOrdine {
                 get {
-                    return ((string)(this[this.tableTaggedItemsView.NumeroOrdineColumn]));
+                    return ((string)(this[this.tableAGAPE_RFID_T.NumeroOrdineColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.NumeroOrdineColumn] = value;
+                    this[this.tableAGAPE_RFID_T.NumeroOrdineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public System.DateTime DataOrdine {
                 get {
-                    return ((global::System.DateTime)(this[this.tableTaggedItemsView.DataOrdineColumn]));
+                    return ((global::System.DateTime)(this[this.tableAGAPE_RFID_T.DataOrdineColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.DataOrdineColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DataOrdineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string ProgressivoArticolo {
                 get {
-                    return ((string)(this[this.tableTaggedItemsView.ProgressivoArticoloColumn]));
+                    return ((string)(this[this.tableAGAPE_RFID_T.ProgressivoArticoloColumn]));
                 }
                 set {
-                    this[this.tableTaggedItemsView.ProgressivoArticoloColumn] = value;
+                    this[this.tableAGAPE_RFID_T.ProgressivoArticoloColumn] = value;
                 }
             }
             
@@ -627,14 +627,14 @@ namespace agape_rfid_mobile {
             public string CodArt {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodArtColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodArtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodArt\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodArt\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodArtColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodArtColumn] = value;
                 }
             }
             
@@ -642,14 +642,14 @@ namespace agape_rfid_mobile {
             public string DescrizioneArticolo {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.DescrizioneArticoloColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DescrizioneArticolo\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DescrizioneArticolo\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.DescrizioneArticoloColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn] = value;
                 }
             }
             
@@ -657,14 +657,14 @@ namespace agape_rfid_mobile {
             public string CodRivenditore {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodRivenditoreColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodRivenditoreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodRivenditore\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodRivenditore\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodRivenditoreColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodRivenditoreColumn] = value;
                 }
             }
             
@@ -672,15 +672,14 @@ namespace agape_rfid_mobile {
             public string AnagraficaRivenditore {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaRivenditore\' in table \'TaggedItemsView\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaRivenditore\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn] = value;
+                    this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn] = value;
                 }
             }
             
@@ -688,14 +687,14 @@ namespace agape_rfid_mobile {
             public string CodCliente {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodClienteColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodClienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodCliente\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodCliente\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodClienteColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodClienteColumn] = value;
                 }
             }
             
@@ -703,14 +702,14 @@ namespace agape_rfid_mobile {
             public string AnagraficaCliente {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.AnagraficaClienteColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaCliente\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AnagraficaCliente\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.AnagraficaClienteColumn] = value;
+                    this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn] = value;
                 }
             }
             
@@ -718,14 +717,14 @@ namespace agape_rfid_mobile {
             public string CodMatricola {
                 get {
                     try {
-                        return ((string)(this[this.tableTaggedItemsView.CodMatricolaColumn]));
+                        return ((string)(this[this.tableAGAPE_RFID_T.CodMatricolaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodMatricola\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodMatricola\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.CodMatricolaColumn] = value;
+                    this[this.tableAGAPE_RFID_T.CodMatricolaColumn] = value;
                 }
             }
             
@@ -733,115 +732,115 @@ namespace agape_rfid_mobile {
             public System.DateTime DataUscita {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableTaggedItemsView.DataUscitaColumn]));
+                        return ((global::System.DateTime)(this[this.tableAGAPE_RFID_T.DataUscitaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DataUscita\' in table \'TaggedItemsView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataUscita\' in table \'AGAPE_RFID_T\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTaggedItemsView.DataUscitaColumn] = value;
+                    this[this.tableAGAPE_RFID_T.DataUscitaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodArtNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodArtColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodArtColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodArtNull() {
-                this[this.tableTaggedItemsView.CodArtColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodArtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsDescrizioneArticoloNull() {
-                return this.IsNull(this.tableTaggedItemsView.DescrizioneArticoloColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.DescrizioneArticoloColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDescrizioneArticoloNull() {
-                this[this.tableTaggedItemsView.DescrizioneArticoloColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.DescrizioneArticoloColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodRivenditoreNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodRivenditoreColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodRivenditoreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodRivenditoreNull() {
-                this[this.tableTaggedItemsView.CodRivenditoreColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodRivenditoreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsAnagraficaRivenditoreNull() {
-                return this.IsNull(this.tableTaggedItemsView.AnagraficaRivenditoreColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetAnagraficaRivenditoreNull() {
-                this[this.tableTaggedItemsView.AnagraficaRivenditoreColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.AnagraficaRivenditoreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodClienteNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodClienteColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodClienteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodClienteNull() {
-                this[this.tableTaggedItemsView.CodClienteColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodClienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsAnagraficaClienteNull() {
-                return this.IsNull(this.tableTaggedItemsView.AnagraficaClienteColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.AnagraficaClienteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetAnagraficaClienteNull() {
-                this[this.tableTaggedItemsView.AnagraficaClienteColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.AnagraficaClienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsCodMatricolaNull() {
-                return this.IsNull(this.tableTaggedItemsView.CodMatricolaColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.CodMatricolaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetCodMatricolaNull() {
-                this[this.tableTaggedItemsView.CodMatricolaColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.CodMatricolaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsDataUscitaNull() {
-                return this.IsNull(this.tableTaggedItemsView.DataUscitaColumn);
+                return this.IsNull(this.tableAGAPE_RFID_T.DataUscitaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDataUscitaNull() {
-                this[this.tableTaggedItemsView.DataUscitaColumn] = global::System.Convert.DBNull;
+                this[this.tableAGAPE_RFID_T.DataUscitaColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Row event argument class
         ///</summary>
-        public class TaggedItemsViewRowChangeEvent : global::System.EventArgs {
+        public class AGAPE_RFID_TRowChangeEvent : global::System.EventArgs {
             
-            private TaggedItemsViewRow eventRow;
+            private AGAPE_RFID_TRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRowChangeEvent(TaggedItemsViewRow row, global::System.Data.DataRowAction action) {
+            public AGAPE_RFID_TRowChangeEvent(AGAPE_RFID_TRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public TaggedItemsViewRow Row {
+            public AGAPE_RFID_TRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -864,7 +863,7 @@ namespace agape_rfid_mobile.destDataSetTableAdapters {
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.DataObjectAttribute(true)]
-    public partial class TaggedItemsViewTableAdapter : global::System.ComponentModel.Component {
+    public partial class AGAPE_RFID_TTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -875,7 +874,7 @@ namespace agape_rfid_mobile.destDataSetTableAdapters {
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public TaggedItemsViewTableAdapter() {
+        public AGAPE_RFID_TTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -941,7 +940,7 @@ namespace agape_rfid_mobile.destDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TaggedItemsView";
+            tableMapping.DataSetTable = "AGAPE_RFID_T";
             tableMapping.ColumnMappings.Add("NumeroOrdine", "NumeroOrdine");
             tableMapping.ColumnMappings.Add("DataOrdine", "DataOrdine");
             tableMapping.ColumnMappings.Add("ProgressivoArticolo", "ProgressivoArticolo");
@@ -956,9 +955,9 @@ namespace agape_rfid_mobile.destDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TaggedItemsView] WHERE (([NumeroOrdine] = @Original_NumeroOrdi" +
-                "ne) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Orig" +
-                "inal_ProgressivoArticolo))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [AGAPE_RFID_T] WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND (" +
+                "[DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_Prog" +
+                "ressivoArticolo))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@Original_NumeroOrdine";
@@ -981,8 +980,8 @@ namespace agape_rfid_mobile.destDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TaggedItemsView] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
-SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM TaggedItemsView WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AGAPE_RFID_T] ([NumeroOrdine], [DataOrdine], [ProgressivoArticolo], [CodArt], [DescrizioneArticolo], [CodRivenditore], [AnagraficaRivenditore], [CodCliente], [AnagraficaCliente], [CodMatricola], [DataUscita]) VALUES (@NumeroOrdine, @DataOrdine, @ProgressivoArticolo, @CodArt, @DescrizioneArticolo, @CodRivenditore, @AnagraficaRivenditore, @CodCliente, @AnagraficaCliente, @CodMatricola, @DataUscita);
+SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
@@ -1043,8 +1042,8 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TaggedItemsView] SET [NumeroOrdine] = @NumeroOrdine, [DataOrdine] = @DataOrdine, [ProgressivoArticolo] = @ProgressivoArticolo, [CodArt] = @CodArt, [DescrizioneArticolo] = @DescrizioneArticolo, [CodRivenditore] = @CodRivenditore, [AnagraficaRivenditore] = @AnagraficaRivenditore, [CodCliente] = @CodCliente, [AnagraficaCliente] = @AnagraficaCliente, [CodMatricola] = @CodMatricola, [DataUscita] = @DataUscita WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo));
-SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM TaggedItemsView WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [AGAPE_RFID_T] SET [NumeroOrdine] = @NumeroOrdine, [DataOrdine] = @DataOrdine, [ProgressivoArticolo] = @ProgressivoArticolo, [CodArt] = @CodArt, [DescrizioneArticolo] = @DescrizioneArticolo, [CodRivenditore] = @CodRivenditore, [AnagraficaRivenditore] = @AnagraficaRivenditore, [CodCliente] = @CodCliente, [AnagraficaCliente] = @AnagraficaCliente, [CodMatricola] = @CodMatricola, [DataUscita] = @DataUscita WHERE (([NumeroOrdine] = @Original_NumeroOrdine) AND ([DataOrdine] = @Original_DataOrdine) AND ([ProgressivoArticolo] = @Original_ProgressivoArticolo));
+SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatricola, DataUscita FROM AGAPE_RFID_T WHERE (DataOrdine = @DataOrdine) AND (NumeroOrdine = @NumeroOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
@@ -1127,8 +1126,8 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.2.0.200\\SQLEXPRESS;Initial Catalog=agape;Persist Security Info=Tr" +
-                "ue;User ID=agape;Password=agape;";
+            this._connection.ConnectionString = "Data Source=santam.dyndns.org\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Pass" +
+                "word=agape;";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1136,15 +1135,15 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo" +
-                ", CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, CodMatri" +
-                "cola, DataUscita FROM dbo.TaggedItemsView";
+            this._commandCollection[0].CommandText = "SELECT     NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArti" +
+                "colo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, \r\n  " +
+                "                    CodMatricola, DataUscita\r\nFROM         AGAPE_RFID_T";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(destDataSet.TaggedItemsViewDataTable dataTable) {
+        public virtual int Fill(destDataSet.AGAPE_RFID_TDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1155,21 +1154,21 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual destDataSet.TaggedItemsViewDataTable GetData() {
+        public virtual destDataSet.AGAPE_RFID_TDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            destDataSet.TaggedItemsViewDataTable dataTable = new destDataSet.TaggedItemsViewDataTable();
+            destDataSet.AGAPE_RFID_TDataTable dataTable = new destDataSet.AGAPE_RFID_TDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public virtual int Update(destDataSet.TaggedItemsViewDataTable dataTable) {
+        public virtual int Update(destDataSet.AGAPE_RFID_TDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public virtual int Update(destDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "TaggedItemsView");
+            return this.Adapter.Update(dataSet, "AGAPE_RFID_T");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
