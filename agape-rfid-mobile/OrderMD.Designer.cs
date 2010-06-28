@@ -174,7 +174,7 @@
             this.scanBtn.Name = "scanBtn";
             this.scanBtn.Size = new System.Drawing.Size(72, 20);
             this.scanBtn.TabIndex = 13;
-            this.scanBtn.Text = "Scan";
+            this.scanBtn.Text = "Avanti";
             this.scanBtn.Click += new System.EventHandler(this.scanBtn_Click);
             // 
             // textBox2

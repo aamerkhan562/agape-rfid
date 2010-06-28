@@ -1025,7 +1025,8 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=santam.dyndns.org\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape";
+            this._connection.ConnectionString = "Data Source=192.2.0.200\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=a" +
+                "gape;";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1034,15 +1035,14 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT     NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArti" +
-                "colo, CodRivenditore, AnagraficaRivenditore, CodCliente, \r\n                     " +
-                " AnagraficaCliente\r\nFROM         AGAPE_RFID";
+                "colo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente\r\nFROM" +
+                "         AGAPE_RFID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT     DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRiven" +
-                "ditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, \r\n                " +
-                "      NumeroOrdine\r\nFROM         AGAPE_RFID\r\nWHERE     (NumeroOrdine = @NumeroOr" +
-                "dine)";
+            this._commandCollection[1].CommandText = "SELECT AnagraficaCliente, AnagraficaRivenditore, CodArt, CodCliente, CodRivendito" +
+                "re, DataOrdine, DescrizioneArticolo, NumeroOrdine, ProgressivoArticolo FROM AGAP" +
+                "E_RFID WHERE (NumeroOrdine = @NumeroOrdine)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
@@ -1123,6 +1123,193 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_NumeroOrdine, System.DateTime Original_DataOrdine, string Original_ProgressivoArticolo) {
+            if ((Original_NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("Original_NumeroOrdine");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_NumeroOrdine));
+            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_DataOrdine));
+            if ((Original_ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("Original_ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ProgressivoArticolo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente) {
+            if ((NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("NumeroOrdine");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NumeroOrdine));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(DataOrdine));
+            if ((ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
+            }
+            if ((CodArt == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CodArt));
+            }
+            if ((DescrizioneArticolo == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(DescrizioneArticolo));
+            }
+            if ((CodRivenditore == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CodRivenditore));
+            }
+            if ((AnagraficaRivenditore == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(AnagraficaRivenditore));
+            }
+            if ((CodCliente == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CodCliente));
+            }
+            if ((AnagraficaCliente == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(AnagraficaCliente));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo, string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string Original_NumeroOrdine, System.DateTime Original_DataOrdine, string Original_ProgressivoArticolo) {
+            if ((NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("NumeroOrdine");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NumeroOrdine));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(DataOrdine));
+            if ((ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
+            }
+            if ((CodArt == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CodArt));
+            }
+            if ((DescrizioneArticolo == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(DescrizioneArticolo));
+            }
+            if ((CodRivenditore == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CodRivenditore));
+            }
+            if ((AnagraficaRivenditore == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(AnagraficaRivenditore));
+            }
+            if ((CodCliente == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CodCliente));
+            }
+            if ((AnagraficaCliente == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(AnagraficaCliente));
+            }
+            if ((Original_NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("Original_NumeroOrdine");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_NumeroOrdine));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_DataOrdine));
+            if ((Original_ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("Original_ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ProgressivoArticolo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string CodArt, string DescrizioneArticolo, string CodRivenditore, string AnagraficaRivenditore, string CodCliente, string AnagraficaCliente, string Original_NumeroOrdine, System.DateTime Original_DataOrdine, string Original_ProgressivoArticolo) {
+            return this.Update(Original_NumeroOrdine, Original_DataOrdine, Original_ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, Original_NumeroOrdine, Original_DataOrdine, Original_ProgressivoArticolo);
         }
     }
 }

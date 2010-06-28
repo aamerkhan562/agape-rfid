@@ -75,6 +75,9 @@
     <Compile Include="DataEntry.Designer.cs">
       <DependentUpon>DataEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="destDataSet.cs">
+      <DependentUpon>destDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="destDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -11,20 +11,21 @@ namespace agape_rfid_mobile
 {
     public partial class DataEntry : Form , ATHF_DLL_NET.I_HFHost
     {
-        private DataRow row;
+        private agapeDataSet.AGAPE_RFIDRow row;
         private DateTime exitDate;
         private Scan scanForm;
+        private static ATHF_DLL_NET.C_HFHost host;
 
-        public DataEntry(DataRow row, DateTime exitDate, Scan scanForm)
+        public DataEntry(agapeDataSet.AGAPE_RFIDRow row, DateTime exitDate, Scan scanForm)
         {
             InitializeComponent();
             this.row = row;
             this.exitDate = exitDate;
             this.scanForm = scanForm;
 
-            ATHF_DLL_NET.C_HFHost h = new ATHF_DLL_NET.C_HFHost(this);
-            h.AT570RFID_RF4_Read_UID();
-
+            if (host == null)
+                host = new ATHF_DLL_NET.C_HFHost(this);
+            host.AT570RFID_Port_Open();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -45,10 +46,14 @@ namespace agape_rfid_mobile
 
         private void smButton_Click(object sender, EventArgs e)
         {
-            updateDatabase(textBox1.Text);
+            
             timer1.Enabled = false;
-            this.Close();
-            scanForm.Close();
+
+            host.AT570RFID_RF4_Read_UID();
+
+            //updateDatabase(txtData.Text);
+            //this.Close();
+            //scanForm.Close();
         }
    
         private void updateDatabase(string uid)
@@ -58,13 +63,17 @@ namespace agape_rfid_mobile
             {
                 try
                 {
-                    AGAPE_RFID_TTableAdapter1.Insert((string)row["NumeroOrdine"], (DateTime)row["DataOrdine"], (string)row["ProgressivoArticolo"], (string)row["CodArt"], (string)row["DescrizioneArticolo"], (string)row["CodRivenditore"], (string)row["AnagraficaRivenditore"], (string)row["CodCliente"], (string)row["AnagraficaCliente"], uid, exitDate);
+                    int count = AGAPE_RFID_TTableAdapter1.GetCountByKey(row.NumeroOrdine, row.DataOrdine.ToShortDateString(), row.ProgressivoArticolo).Count;
+                    if(count==0)
+                        AGAPE_RFID_TTableAdapter1.Insert(row.NumeroOrdine, row.DataOrdine, row.ProgressivoArticolo, row.CodArt, row.DescrizioneArticolo, row.CodRivenditore, row.AnagraficaRivenditore, row.CodCliente, row.AnagraficaCliente, uid, exitDate);
+                    else
+                        AGAPE_RFID_TTableAdapter1.Update(row.NumeroOrdine, row.DataOrdine, row.ProgressivoArticolo, row.CodArt, row.DescrizioneArticolo, row.CodRivenditore, row.AnagraficaRivenditore, row.CodCliente, row.AnagraficaCliente, uid, exitDate, row.NumeroOrdine, row.DataOrdine, row.ProgressivoArticolo);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     dr = MessageBox.Show(
                         "Error saving on DB",
-                        "",
+                        ex.Message,
                         MessageBoxButtons.RetryCancel,
                         MessageBoxIcon.Exclamation,
                         MessageBoxDefaultButton.Button1);
@@ -84,15 +93,16 @@ namespace agape_rfid_mobile
 
         public void GetMemoryData(string data)
         {
-            throw new NotImplementedException();
+            if (data != "None")
+            {
+                this.txtData.Text = data;
+                updateDatabase(data);
+
+                ATHF_DLL_NET.C_HFHost.PlaySuccess();
+            }
         }
 
         #endregion
-
-        private void DataEntry_KeyDown(object sender, KeyEventArgs e)
-        {
-            MessageBox.Show("Keypressed");
-        }
 
     }
 }

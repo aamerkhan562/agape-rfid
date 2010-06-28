@@ -24,13 +24,13 @@ namespace agape_rfid_mobile
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'agapeDataSet.ItemsView' table. You can move, or remove it, as needed.
-            //this.itemsViewTableAdapter.Fill(this.agapeDataSet.ItemsView);
+            // TODO: This line of code loads data
+            // this.AGAPE_RFIDTableAdapter.Fill(this.agapeDataSet.AGAPE_RFID);
         }
 
         private void scanBtn_Click(object sender, EventArgs e)
         {
-            DataRow dr = ((DataRowView)agapeBindingSource.Current).Row;
+            agapeDataSet.AGAPE_RFIDRow dr = (agapeDataSet.AGAPE_RFIDRow)((DataRowView)agapeBindingSource.Current).Row;
             new Scan(dr).Show();
         }
 

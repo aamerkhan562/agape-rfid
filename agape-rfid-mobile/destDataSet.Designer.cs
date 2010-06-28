@@ -1126,19 +1126,44 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=santam.dyndns.org\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Pass" +
-                "word=agape;";
+            this._connection.ConnectionString = "Data Source=192.2.0.200\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=a" +
+                "gape;";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT     NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArti" +
                 "colo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, \r\n  " +
                 "                    CodMatricola, DataUscita\r\nFROM         AGAPE_RFID_T";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT     COUNT(*) AS Expr1\r\nFROM         AGAPE_RFID_T\r\nWHERE     (NumeroOrdine " +
+                "= @NumeroOrdine) AND (DataOrdine = @DataOrdine) AND (ProgressivoArticolo = @Prog" +
+                "ressivoArticolo)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@NumeroOrdine";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "NumeroOrdine";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@DataOrdine";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.Size = 3;
+            param.IsNullable = true;
+            param.SourceColumn = "DataOrdine";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::System.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@ProgressivoArticolo";
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "ProgressivoArticolo";
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1156,6 +1181,62 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual destDataSet.AGAPE_RFID_TDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            destDataSet.AGAPE_RFID_TDataTable dataTable = new destDataSet.AGAPE_RFID_TDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int CountByKey(destDataSet.AGAPE_RFID_TDataTable dataTable, string NumeroOrdine, string DataOrdine, string ProgressivoArticolo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("NumeroOrdine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NumeroOrdine));
+            }
+            if ((DataOrdine == null)) {
+                throw new global::System.ArgumentNullException("DataOrdine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DataOrdine));
+            }
+            if ((ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual destDataSet.AGAPE_RFID_TDataTable GetCountByKey(string NumeroOrdine, string DataOrdine, string ProgressivoArticolo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((NumeroOrdine == null)) {
+                throw new global::System.ArgumentNullException("NumeroOrdine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NumeroOrdine));
+            }
+            if ((DataOrdine == null)) {
+                throw new global::System.ArgumentNullException("DataOrdine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DataOrdine));
+            }
+            if ((ProgressivoArticolo == null)) {
+                throw new global::System.ArgumentNullException("ProgressivoArticolo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(ProgressivoArticolo));
+            }
             destDataSet.AGAPE_RFID_TDataTable dataTable = new destDataSet.AGAPE_RFID_TDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

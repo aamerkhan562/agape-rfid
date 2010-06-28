@@ -11,16 +11,16 @@ namespace agape_rfid_mobile
 {
     public partial class Scan : Form
     {
-        private DataRow row;
-        public Scan(DataRow row)
+        private agapeDataSet.AGAPE_RFIDRow row;
+        public Scan(agapeDataSet.AGAPE_RFIDRow row)
         {
             InitializeComponent();
             this.row = row;
 
-            this.ordNumLabel.Text = row["NumeroOrdine"].ToString();
-            this.orderDateLabel.Text = ((DateTime)row["DataOrdine"]).ToShortDateString();
-            this.codArtLabel.Text = row["CodArt"].ToString();
-            this.descArtLabel.Text = row["DescrizioneArticolo"].ToString();
+            this.ordNumLabel.Text = row.NumeroOrdine;
+            this.orderDateLabel.Text = row.DataOrdine.ToShortDateString();
+            this.codArtLabel.Text = row.CodArt;
+            this.descArtLabel.Text = row.DescrizioneArticolo;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
