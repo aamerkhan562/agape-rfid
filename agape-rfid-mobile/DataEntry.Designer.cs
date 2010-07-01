@@ -39,6 +39,7 @@
             this.taggedItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.destDataSet = new agape_rfid_mobile.destDataSet();
             this.AGAPE_RFID_TTableAdapter1 = new agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // smButton
             // 
-            this.smButton.Location = new System.Drawing.Point(50, 152);
+            this.smButton.Location = new System.Drawing.Point(50, 193);
             this.smButton.Name = "smButton";
             this.smButton.Size = new System.Drawing.Size(125, 55);
             this.smButton.TabIndex = 5;
@@ -90,7 +91,7 @@
             // 
             // txtData
             // 
-            this.txtData.Location = new System.Drawing.Point(50, 123);
+            this.txtData.Location = new System.Drawing.Point(50, 164);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(125, 23);
             this.txtData.TabIndex = 11;
@@ -110,12 +111,22 @@
             // 
             this.AGAPE_RFID_TTableAdapter1.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(50, 116);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 42);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Init";
+            this.button1.Click += new System.EventHandler(this.initCard_Click);
+            // 
             // DataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(238, 295);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.cancButton);
             this.Controls.Add(this.label1);
@@ -143,5 +154,6 @@
         private destDataSet destDataSet;
         private System.Windows.Forms.TextBox txtData;
         private agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter AGAPE_RFID_TTableAdapter1;
+        private System.Windows.Forms.Button button1;
     }
 }

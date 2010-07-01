@@ -1141,9 +1141,10 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT     COUNT(*) AS Expr1\r\nFROM         AGAPE_RFID_T\r\nWHERE     (NumeroOrdine " +
-                "= @NumeroOrdine) AND (DataOrdine = @DataOrdine) AND (ProgressivoArticolo = @Prog" +
-                "ressivoArticolo)";
+            this._commandCollection[1].CommandText = @"SELECT     NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticolo, CodRivenditore, AnagraficaRivenditore, CodCliente, AnagraficaCliente, 
+                      CodMatricola, DataUscita
+FROM         AGAPE_RFID_T
+WHERE     (NumeroOrdine = @NumeroOrdine) AND (DataOrdine = @DataOrdine) AND (ProgressivoArticolo = @ProgressivoArticolo)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SqlClient.SqlParameter param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@NumeroOrdine";
@@ -1153,7 +1154,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             this._commandCollection[1].Parameters.Add(param);
             param = new global::System.Data.SqlClient.SqlParameter();
             param.ParameterName = "@DataOrdine";
-            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.DateTime;
             param.Size = 3;
             param.IsNullable = true;
             param.SourceColumn = "DataOrdine";
@@ -1188,7 +1189,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int CountByKey(destDataSet.AGAPE_RFID_TDataTable dataTable, string NumeroOrdine, string DataOrdine, string ProgressivoArticolo) {
+        public virtual int FillByKey(destDataSet.AGAPE_RFID_TDataTable dataTable, string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((NumeroOrdine == null)) {
                 throw new global::System.ArgumentNullException("NumeroOrdine");
@@ -1196,12 +1197,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NumeroOrdine));
             }
-            if ((DataOrdine == null)) {
-                throw new global::System.ArgumentNullException("DataOrdine");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DataOrdine));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DataOrdine));
             if ((ProgressivoArticolo == null)) {
                 throw new global::System.ArgumentNullException("ProgressivoArticolo");
             }
@@ -1217,7 +1213,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual destDataSet.AGAPE_RFID_TDataTable GetCountByKey(string NumeroOrdine, string DataOrdine, string ProgressivoArticolo) {
+        public virtual destDataSet.AGAPE_RFID_TDataTable GetDataByKey(string NumeroOrdine, System.DateTime DataOrdine, string ProgressivoArticolo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((NumeroOrdine == null)) {
                 throw new global::System.ArgumentNullException("NumeroOrdine");
@@ -1225,12 +1221,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NumeroOrdine));
             }
-            if ((DataOrdine == null)) {
-                throw new global::System.ArgumentNullException("DataOrdine");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DataOrdine));
-            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DataOrdine));
             if ((ProgressivoArticolo == null)) {
                 throw new global::System.ArgumentNullException("ProgressivoArticolo");
             }
