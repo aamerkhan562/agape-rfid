@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>destDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="NFCStandarForMifare.cs" />
     <Compile Include="OrderMD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,7 +112,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="RFIDReader.cs" />
     <Compile Include="Scan.cs">
       <SubType>Form</SubType>
     </Compile>

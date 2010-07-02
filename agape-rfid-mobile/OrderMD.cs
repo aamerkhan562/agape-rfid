@@ -11,9 +11,11 @@ namespace agape_rfid_mobile
 {
     public partial class OrderMD : Form
     {
+        private Scan scanForm;
         public OrderMD()
         {
             InitializeComponent();
+            scanForm = new Scan();
         }
 
         private void cercaBtn_Click(object sender, EventArgs e)
@@ -31,7 +33,8 @@ namespace agape_rfid_mobile
         private void scanBtn_Click(object sender, EventArgs e)
         {
             agapeDataSet.AGAPE_RFIDRow dr = (agapeDataSet.AGAPE_RFIDRow)((DataRowView)agapeBindingSource.Current).Row;
-            new Scan(dr).Show();
+            scanForm.setData(dr);
+            scanForm.Show();
         }
 
         private void dataGrid1_CurrentCellChanged(object sender, EventArgs e)

@@ -9,11 +9,24 @@ using System.Windows.Forms;
 
 namespace agape_rfid_mobile
 {
-    public partial class DataEntry : Form , ATHF_DLL_NET.I_HFHost
+    public enum Status
+    {
+        InitKeyLoad,
+        InitWrite,
+        ReadUid,
+        KeyLoad,
+        WriteUrl,
+        WriteDB
+    }
+
+    public partial class DataEntry : Form, ATHF_DLL_NET.I_HFHost
     {
         private agapeDataSet.AGAPE_RFIDRow row;
         private DateTime exitDate;
         private Scan scanForm;
+
+        private Status status;
+        private string[] preparedData;
 
         private static ATHF_DLL_NET.C_HFHost host;
         private static bool openFlag = false;
@@ -23,7 +36,7 @@ namespace agape_rfid_mobile
         private static string keyA = "FFFFFFFFFFFF";
         private static string keyB = "111111111111";
         private static string acsStandard = "FF078069";
-        private string acsWriteProtected = "78778800";
+        private static string acsWriteProtected = "78778800";
 
         public DataEntry(agapeDataSet.AGAPE_RFIDRow row, DateTime exitDate, Scan scanForm)
         {
@@ -41,12 +54,15 @@ namespace agape_rfid_mobile
                 openFlag = host.AT570RFID_Port_Open();
 
             host.ActivateForm = this;
+
+            this.currentRetries = 0;
+            this.currentBlock = 0;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             //timer1.Enabled = false;
-            this.Close();
+            this.Hide();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -77,16 +93,94 @@ namespace agape_rfid_mobile
 
         private void initCard_Click(object sender, EventArgs e)
         {
-            int nblocks = 1;
+            currentBlock = 3;
+            status = Status.InitKeyLoad;
 
+            initKeyLoad(currentBlock);
+            /*
             string tbData = keyA + acsStandard + keyB;
 
             int j = 0;
-            for (int i = 7; j < nblocks; i += 4, j++)
+            for (int i = 3; j < nblocks; i += 4, j++)
             {
-                host.AT570RFID_RF4_KeyLoad(i.ToString("X2"), "B", "1", keyB);
+                
                 host.AT570RFID_RF4_Block_Write(i.ToString("X2"), "B", "1", tbData, (uint)32);
             }
+            */
+        }
+
+        private void initKeyLoad(int currentBlock)
+        {
+            host.AT570RFID_RF4_KeyLoad((currentBlock).ToString("X2"), "B", "1", keyB);
+        }
+
+        private void initWrite(int currentBlock)
+        {
+            string tbData = keyA + acsStandard + keyB;
+            host.AT570RFID_RF4_Block_Write((currentBlock).ToString("X2"), "B", "1", tbData, Convert.ToUInt32(32));
+        }
+
+        private void cancButton_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            this.Hide();
+            scanForm.Hide();
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F1 || e.KeyCode == Keys.F7)
+            {
+                status = Status.ReadUid;
+                preparedData = prepareData("porcoilmondochecciosottoipiedi.it/index.asp&artNum=10");
+                currentRetries = 0;
+                currentBlock = 0;
+                // UID
+                readUID();
+            }
+
+            base.OnKeyDown(e);
+        }
+
+        private string[] prepareData(string url)
+        {
+            string encodedData = NFCStandarForMifare.encodeURI(URIPrefix.HTTP_WWW, url);
+
+            int tlvBlocks = encodedData.Length/32;
+
+            if (encodedData.Length % 32 > 0)
+                tlvBlocks++;
+
+            encodedData = encodedData.PadRight(tlvBlocks * 32, '0');
+            int dataBlocks = (tlvBlocks / 3) * 4 + ((tlvBlocks % 3 == 0) ? 0 : 1)*4;
+
+            string[] nfcData = new string[dataBlocks];
+
+            for (int i=0; i < dataBlocks/4; i++)
+            {
+                int j = 0;
+                for (; j < 3 ; j++)
+                {
+                    if ((i * 3 + j) * 32 < encodedData.Length)
+                        nfcData[i * 4 + j] = encodedData.Substring((i * 3 + j) * 32, 32);
+                    else
+                        nfcData[i * 4 + j] = "00000000000000000000000000000000";
+                }
+                nfcData[i * 4 + j] = keyANFCNDEF + acsWriteProtected + keyB;
+            }
+
+            string[] madData = NFCStandarForMifare.encodeMAD(keyB);
+
+            string[] data = new string[nfcData.Length + madData.Length];
+
+            int k = 0;
+            for (int i = 0; i < madData.Length; i++, k++)
+                data[k] = madData[i];
+            for (int i = 0; i < nfcData.Length; i++, k++)
+                data[k] = nfcData[i];
+
+            return data;
         }
 
         private void readUID()
@@ -94,24 +188,24 @@ namespace agape_rfid_mobile
             host.AT570RFID_RF4_Read_UID();
         }
 
-        private string stringToHex(string s)
+        private void keyLoad(int currentBlock)
         {
-            UTF8Encoding enc = new UTF8Encoding();
-            StringBuilder sb = new StringBuilder();
-            byte[] chars = enc.GetBytes(s);
-            foreach (byte c in chars)
-            {
-                sb.Append(String.Format("{0:X2}", c));
-            }
-            return sb.ToString();
+            host.AT570RFID_RF4_KeyLoad((currentBlock + 1).ToString("X2"), "A", "1", keyA);
         }
 
-        private void writeUrl(string url)
+        private void writeUrl(int currentBlock)
         {
-            int nblocks = url.Length / 16 + ((url.Length % 16 == 0) ? 0 : 1);
-            url = url.PadRight(nblocks * 16);
-            
+            host.AT570RFID_RF4_Block_Write((currentBlock+1).ToString("X2"), "A", "1", preparedData[currentBlock], Convert.ToUInt32(32));
+
+            /*
+            int stringBlocks = computeBlocks(url);
+            url = url.PadRight(stringBlocks * 16);
+            int n = (stringBlocks / 3) * 4 + ((stringBlocks % 3 == 0) ? 0 : 1);
+
             string ws = stringToHex(url);
+
+            int blockAddr = 4 + currentBlock;
+            int writePermAddr = (blockAddr / 4) * 4 + 4;
 
             int i = 4;
             int j = 0;
@@ -127,15 +221,7 @@ namespace agape_rfid_mobile
 
                 host.AT570RFID_RF4_Block_Write(i.ToString("X2"), "A", "1", tbData, Convert.ToUInt32(32));
             }
-        }
-
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            // UID
-            if (e.KeyCode == Keys.F1 || e.KeyCode == Keys.F7)
-                readUID();
-
-            base.OnKeyDown(e);
+            */
         }
 
         private void updateDatabase(string uid)
@@ -164,28 +250,119 @@ namespace agape_rfid_mobile
 
         }
 
-        private void cancButton_Click(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-            this.Close();
-            scanForm.Close();
-        }
-
-
         #region I_HFHost Members
+
+        private string currentUID;
+        private int currentBlock;
+        private int currentRetries;
+
+        private static int MAX_RETRIES = 3;
 
         public void GetMemoryData(string data)
         {
             this.txtData.Text = data;
-            if (data!= null && data != "" && data != "None" && data.Substring(0, 2) != "ER" && data.Substring(0, 2) != "OK")
+
+            if (status == Status.InitKeyLoad)
             {
-                updateDatabase(data);
-                writeUrl("www.porcoilmondochecciosottoipiedi.it");
-
-                ATHF_DLL_NET.C_HFHost.PlaySuccess();
-
-                return;
+                if (data != null && data == "OK")
+                {
+                    status = Status.InitWrite;
+                    initWrite(currentBlock);
+                    return;
+                }
+                else if (currentRetries < MAX_RETRIES)
+                {
+                    status = Status.InitWrite;
+                    initWrite(currentBlock);
+                    return;
+                }
             }
+            else if(status == Status.InitWrite)
+            {
+                if (data != null && data == "OK")
+                {
+                    if (currentBlock == 19)
+                    {
+                        ATHF_DLL_NET.C_HFHost.PlaySuccess();
+                        return;
+                    }
+                    else
+                    {
+                        currentRetries = 0;
+                        currentBlock+=4;
+                        status = Status.InitKeyLoad;
+                        initKeyLoad(currentBlock);
+                        return;
+                    }
+                }
+                else if (currentRetries < MAX_RETRIES)
+                {
+                    status = Status.InitKeyLoad;
+                    initKeyLoad(currentBlock);
+                    currentRetries++;
+                    return;
+                }
+            }
+            else if (status == Status.ReadUid)
+            {
+                if(data!= null && data != "" && data != "None" )//&& data.Substring(0, 2) != "ER" && data.Substring(0, 2) != "OK")
+                {
+                    currentUID = data;
+                    status = Status.KeyLoad;
+                    keyLoad(currentBlock);
+                    currentRetries=0;
+                    return;
+                }
+                else if (currentRetries < MAX_RETRIES)
+                {
+                    readUID();
+                    currentRetries++;
+                    return;
+                }
+            }
+            else if (status == Status.KeyLoad)
+            {
+                if (data != null && data == "OK")
+                {
+                    status = Status.WriteUrl;
+                    writeUrl(currentBlock);
+                    return;
+                }
+                else if (currentRetries < MAX_RETRIES)
+                {
+                    status = Status.WriteUrl;
+                    writeUrl(currentBlock);
+                    return;
+                }
+            }
+            else if(status == Status.WriteUrl)
+            {
+                if (data != null && data == "OK")
+                {
+                    if (currentBlock == preparedData.Length-1)
+                    {
+                        status = Status.WriteDB;
+                        updateDatabase(currentUID);
+                        ATHF_DLL_NET.C_HFHost.PlaySuccess();
+                        return;
+                    }
+                    else
+                    {
+                        currentRetries = 0;
+                        currentBlock++;
+                        status = Status.KeyLoad;
+                        keyLoad(currentBlock);
+                        return;
+                    }
+                }
+                else if (currentRetries < MAX_RETRIES)
+                {
+                    status = Status.KeyLoad;
+                    keyLoad(currentBlock);
+                    currentRetries++;
+                    return;
+                }
+            }     
             ATHF_DLL_NET.C_HFHost.PlayFail();
         }
 
