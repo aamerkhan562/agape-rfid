@@ -33,13 +33,13 @@
             this.smButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer();
             this.cancButton = new System.Windows.Forms.Button();
             this.txtData = new System.Windows.Forms.TextBox();
             this.taggedItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.destDataSet = new agape_rfid_mobile.destDataSet();
             this.AGAPE_RFID_TTableAdapter1 = new agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).BeginInit();
             this.SuspendLayout();
@@ -55,12 +55,12 @@
             // 
             // smButton
             // 
-            this.smButton.Location = new System.Drawing.Point(50, 193);
+            this.smButton.Location = new System.Drawing.Point(3, 196);
             this.smButton.Name = "smButton";
-            this.smButton.Size = new System.Drawing.Size(125, 55);
+            this.smButton.Size = new System.Drawing.Size(177, 71);
             this.smButton.TabIndex = 5;
             this.smButton.Text = "Scan";
-            this.smButton.Click += new System.EventHandler(this.smButton_Click);
+            this.smButton.Click += new System.EventHandler(this.scanButton_Click);
             // 
             // progressBar1
             // 
@@ -76,10 +76,6 @@
             this.label1.Size = new System.Drawing.Size(156, 20);
             this.label1.Text = "Scansionare il tag...";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // cancButton
             // 
             this.cancButton.Location = new System.Drawing.Point(170, 3);
@@ -91,9 +87,11 @@
             // 
             // txtData
             // 
-            this.txtData.Location = new System.Drawing.Point(50, 164);
+            this.txtData.Enabled = false;
+            this.txtData.Location = new System.Drawing.Point(186, 196);
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(125, 23);
+            this.txtData.ReadOnly = true;
+            this.txtData.Size = new System.Drawing.Size(49, 23);
             this.txtData.TabIndex = 11;
             // 
             // taggedItemsBindingSource
@@ -113,19 +111,28 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(50, 116);
+            this.button1.Location = new System.Drawing.Point(186, 225);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 42);
+            this.button1.Size = new System.Drawing.Size(49, 42);
             this.button1.TabIndex = 14;
             this.button1.Text = "Init";
             this.button1.Click += new System.EventHandler(this.initCard_Click);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.messageLabel.Location = new System.Drawing.Point(3, 72);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(232, 20);
             // 
             // DataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(238, 295);
+            this.ClientSize = new System.Drawing.Size(238, 270);
+            this.ControlBox = false;
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.cancButton);
@@ -133,9 +140,11 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.smButton);
             this.Controls.Add(this.backBtn);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DataEntry";
             this.Text = "DataEntry";
-            this.Load += new System.EventHandler(this.DataEntry_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -149,11 +158,11 @@
         private System.Windows.Forms.Button smButton;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button cancButton;
         private destDataSet destDataSet;
         private System.Windows.Forms.TextBox txtData;
         private agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter AGAPE_RFID_TTableAdapter1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

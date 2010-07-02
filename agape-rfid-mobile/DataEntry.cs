@@ -61,34 +61,13 @@ namespace agape_rfid_mobile
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            //timer1.Enabled = false;
             this.Hide();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void cancButton_Click(object sender, EventArgs e)
         {
-            this.progressBar1.Value = ++progressBar1.Value % progressBar1.Maximum;
-        }
-
-        private void DataEntry_Load(object sender, EventArgs e)
-        {
-            //timer1.Enabled = true;
-        }
-
-        private void smButton_Click(object sender, EventArgs e)
-        {
-            
-            //timer1.Enabled = false;
-
-            //updateDatabase(txtData.Text);
-            //this.Close();
-            //scanForm.Close();
-
-            //string sh = stringToHex("www.google.com/12345");
-            //host.AT570RFID_RF4_KeyLoad("04", "A", "1", "111111111111");
-            //host.AT570RFID_RF4_Block_Write("01", "A", "1", "1BABABABABABABABABABABABABABABAB", (uint)32);
-            //host.AT570RFID_RF4_Block_Write("02", "A", "1", "2BABABABABABABABABABABABABABABAB", (uint)32);
-            //host.AT570RFID_RF4_Block_Write("03", "A", "1", "3BABABABABABABABABABABABABABABAB", (uint)32);
+            this.Hide();
+            scanForm.Hide();
         }
 
         private void initCard_Click(object sender, EventArgs e)
@@ -97,16 +76,6 @@ namespace agape_rfid_mobile
             status = Status.InitKeyLoad;
 
             initKeyLoad(currentBlock);
-            /*
-            string tbData = keyA + acsStandard + keyB;
-
-            int j = 0;
-            for (int i = 3; j < nblocks; i += 4, j++)
-            {
-                
-                host.AT570RFID_RF4_Block_Write(i.ToString("X2"), "B", "1", tbData, (uint)32);
-            }
-            */
         }
 
         private void initKeyLoad(int currentBlock)
@@ -116,31 +85,33 @@ namespace agape_rfid_mobile
 
         private void initWrite(int currentBlock)
         {
-            string tbData = keyA + acsStandard + keyB;
+            string tbData = keyA + acsStandard + keyA;
             host.AT570RFID_RF4_Block_Write((currentBlock).ToString("X2"), "B", "1", tbData, Convert.ToUInt32(32));
         }
 
-        private void cancButton_Click(object sender, EventArgs e)
+        private void scanButton_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
-            this.Hide();
-            scanForm.Hide();
+            startProcess();
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-
-            if (e.KeyCode == Keys.F1 || e.KeyCode == Keys.F7)
-            {
-                status = Status.ReadUid;
-                preparedData = prepareData("porcoilmondochecciosottoipiedi.it/index.asp&artNum=10");
-                currentRetries = 0;
-                currentBlock = 0;
-                // UID
-                readUID();
-            }
-
+            if (e.KeyCode == Keys.F1 || e.KeyCode == Keys.F7 || e.KeyCode == Keys.F8)
+                startProcess(); 
+            
             base.OnKeyDown(e);
+        }
+
+        private void startProcess()
+        {
+            status = Status.ReadUid;
+            preparedData = prepareData("porcoilmondochecciosottoipiedi.it/index.asp&artNum=10");
+            progressBar1.Maximum = preparedData.Length;
+            progressBar1.Value = 0;
+            currentRetries = 0;
+            currentBlock = 0;
+            // UID
+            readUID();
         }
 
         private string[] prepareData(string url)
@@ -196,32 +167,6 @@ namespace agape_rfid_mobile
         private void writeUrl(int currentBlock)
         {
             host.AT570RFID_RF4_Block_Write((currentBlock+1).ToString("X2"), "A", "1", preparedData[currentBlock], Convert.ToUInt32(32));
-
-            /*
-            int stringBlocks = computeBlocks(url);
-            url = url.PadRight(stringBlocks * 16);
-            int n = (stringBlocks / 3) * 4 + ((stringBlocks % 3 == 0) ? 0 : 1);
-
-            string ws = stringToHex(url);
-
-            int blockAddr = 4 + currentBlock;
-            int writePermAddr = (blockAddr / 4) * 4 + 4;
-
-            int i = 4;
-            int j = 0;
-            for (; j < nblocks; i += 1)
-            {
-                host.AT570RFID_RF4_KeyLoad(i.ToString("X2"), "A", "1", keyA);
-                for (; j < nblocks && i % 4 < 3; i++)
-                {
-                    host.AT570RFID_RF4_Block_Write(i.ToString("X2"), "A", "1", ws.Substring(j*32, 32), Convert.ToUInt32(32));
-                    j++;
-                }
-                string tbData = keyA + acsWriteProtected + keyB;
-
-                host.AT570RFID_RF4_Block_Write(i.ToString("X2"), "A", "1", tbData, Convert.ToUInt32(32));
-            }
-            */
         }
 
         private void updateDatabase(string uid)
@@ -343,13 +288,16 @@ namespace agape_rfid_mobile
                     {
                         status = Status.WriteDB;
                         updateDatabase(currentUID);
+                        progressBar1.Value++;
                         ATHF_DLL_NET.C_HFHost.PlaySuccess();
+                        messageLabel.Text = "Scrittura eseguita.";
                         return;
                     }
                     else
                     {
                         currentRetries = 0;
                         currentBlock++;
+                        progressBar1.Value++;
                         status = Status.KeyLoad;
                         keyLoad(currentBlock);
                         return;
@@ -362,7 +310,8 @@ namespace agape_rfid_mobile
                     currentRetries++;
                     return;
                 }
-            }     
+            }
+            messageLabel.Text = "Operazione fallita.";
             ATHF_DLL_NET.C_HFHost.PlayFail();
         }
 

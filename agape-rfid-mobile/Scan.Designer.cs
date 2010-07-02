@@ -125,7 +125,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 222);
+            this.button1.Location = new System.Drawing.Point(31, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 30);
             this.button1.TabIndex = 9;
@@ -153,7 +153,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(238, 280);
+            this.ClientSize = new System.Drawing.Size(238, 270);
+            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
@@ -167,8 +168,11 @@
             this.Controls.Add(this.ordNumLabel);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Scan";
             this.Text = "Scan";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

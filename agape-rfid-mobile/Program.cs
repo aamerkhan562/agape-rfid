@@ -11,7 +11,9 @@ namespace agape_rfid_mobile
         /// The main entry point for the application.
         /// </summary>
         static void Main()
-        { 
+        {
+            ConfigurationManager.AppSettings.Add("connString", "");
+            ConfigurationManager.AppSettings.Get("connString");
             Application.Run(new OrderMD());
         }
     }

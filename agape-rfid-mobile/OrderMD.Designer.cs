@@ -53,9 +53,9 @@
             // cercaBtn
             // 
             this.cercaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cercaBtn.Location = new System.Drawing.Point(163, 6);
+            this.cercaBtn.Location = new System.Drawing.Point(179, 3);
             this.cercaBtn.Name = "cercaBtn";
-            this.cercaBtn.Size = new System.Drawing.Size(72, 20);
+            this.cercaBtn.Size = new System.Drawing.Size(56, 49);
             this.cercaBtn.TabIndex = 0;
             this.cercaBtn.Text = "Cerca";
             this.cercaBtn.Click += new System.EventHandler(this.cercaBtn_Click);
@@ -66,7 +66,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.orderNumTb.Location = new System.Drawing.Point(68, 3);
             this.orderNumTb.Name = "orderNumTb";
-            this.orderNumTb.Size = new System.Drawing.Size(89, 23);
+            this.orderNumTb.Size = new System.Drawing.Size(105, 23);
             this.orderNumTb.TabIndex = 1;
             // 
             // label1
@@ -91,10 +91,10 @@
             // 
             this.dataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dataGrid1.DataSource = this.agapeBindingSource;
-            this.dataGrid1.Location = new System.Drawing.Point(3, 62);
+            this.dataGrid1.Location = new System.Drawing.Point(2, 58);
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.RowHeadersVisible = false;
-            this.dataGrid1.Size = new System.Drawing.Size(233, 98);
+            this.dataGrid1.Size = new System.Drawing.Size(233, 91);
             this.dataGrid1.TabIndex = 6;
             this.dataGrid1.TableStyles.Add(this.dataGridTableStyle1);
             this.dataGrid1.CurrentCellChanged += new System.EventHandler(this.dataGrid1_CurrentCellChanged);
@@ -113,7 +113,7 @@
             this.PrgArt.FormatInfo = null;
             this.PrgArt.HeaderText = "Prg.Art.";
             this.PrgArt.MappingName = "ProgressivoArticolo";
-            this.PrgArt.Width = 28;
+            this.PrgArt.Width = 29;
             // 
             // CodArt
             // 
@@ -145,7 +145,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(25, 36);
+            this.label2.Location = new System.Drawing.Point(25, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.Text = "Data";
@@ -153,16 +153,16 @@
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeBindingSource, "DescrizioneArticolo", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.textBox1.Location = new System.Drawing.Point(3, 186);
+            this.textBox1.Location = new System.Drawing.Point(3, 175);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(233, 61);
+            this.textBox1.Size = new System.Drawing.Size(170, 92);
             this.textBox1.TabIndex = 10;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(3, 163);
+            this.label3.Location = new System.Drawing.Point(3, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.Text = "Descrizione";
@@ -170,9 +170,9 @@
             // scanBtn
             // 
             this.scanBtn.Enabled = false;
-            this.scanBtn.Location = new System.Drawing.Point(164, 253);
+            this.scanBtn.Location = new System.Drawing.Point(179, 175);
             this.scanBtn.Name = "scanBtn";
-            this.scanBtn.Size = new System.Drawing.Size(72, 20);
+            this.scanBtn.Size = new System.Drawing.Size(56, 92);
             this.scanBtn.TabIndex = 13;
             this.scanBtn.Text = "Avanti";
             this.scanBtn.Click += new System.EventHandler(this.scanBtn_Click);
@@ -180,10 +180,10 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agapeBindingSource, "DataOrdine", true, System.Windows.Forms.DataSourceUpdateMode.Never, null, "d"));
-            this.textBox2.Location = new System.Drawing.Point(68, 36);
+            this.textBox2.Location = new System.Drawing.Point(68, 29);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(89, 23);
+            this.textBox2.Size = new System.Drawing.Size(105, 23);
             this.textBox2.TabIndex = 17;
             // 
             // OrderMD
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(238, 280);
+            this.ClientSize = new System.Drawing.Size(238, 270);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.scanBtn);
             this.Controls.Add(this.label3);
@@ -201,7 +201,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderNumTb);
             this.Controls.Add(this.cercaBtn);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "OrderMD";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.agapeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agapeDataSet)).EndInit();

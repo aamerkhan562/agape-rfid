@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>agapeDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurationManager.cs" />
     <Compile Include="DataEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +125,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="agape-rfid-mobile.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="agapeDataSet.xsc">
       <DependentUpon>agapeDataSet.xsd</DependentUpon>
     </None>
