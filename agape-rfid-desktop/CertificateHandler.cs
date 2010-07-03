@@ -8,86 +8,88 @@ using System.Xml;
 using System.Xml.Linq;
 using System.IO;
 using System.Diagnostics;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Drawing;
 
 namespace agape_rfid_desktop
 {
     class CertificateHandler
     {
+
+        public static void findAll<T>(OpenXmlElement root, List<T> res) 
+        {
+            foreach (OpenXmlElement el in root.Elements())
+            {
+                if (el.GetType() == typeof(T))
+                {
+                    Object obj = el;
+                    res.Add((T)obj);
+                }
+                if (el.HasChildren)
+                {
+                    findAll<T>(el, res);
+                }
+            }
+        }
+
         public static void createCertificate(ItemDescription desc, Languages lang)
         {
-
-            using (WordprocessingDocument template = WordprocessingDocument.Open(agape_rfid_desktop.Properties.Settings.Default.templatePath, false))
-            using (WordprocessingDocument outDoc = WordprocessingDocument.Create(agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "//" + "pippo" + ".docx", DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+            System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.templatePath + "\\temp.docx", agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "\\" + desc.Product + "-Certificate.docx", true);
+            using (WordprocessingDocument outDoc = WordprocessingDocument.Open(agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "\\" + desc.Product + "-Certificate.docx",true))
             {
-                outDoc.AddThumbnailPart(ThumbnailPartType.Wmf);
-                ThumbnailPart thumbnailPart1 = template.ThumbnailPart;
-                ThumbnailPart thumbnailPart2 = outDoc.ThumbnailPart;
-                using (StreamReader streamReader = new StreamReader(thumbnailPart1.GetStream()))
-                using (StreamWriter streamWriter = new StreamWriter(thumbnailPart2.GetStream(FileMode.Create)))
+                List<DocumentFormat.OpenXml.Wordprocessing.Text> nodes = new List<DocumentFormat.OpenXml.Wordprocessing.Text>();
+                findAll<DocumentFormat.OpenXml.Wordprocessing.Text>(outDoc.MainDocumentPart.Document.Body,nodes);
+                foreach (DocumentFormat.OpenXml.Wordprocessing.Text txt in nodes)
                 {
-                    streamWriter.Write(streamReader.ReadToEnd());
+                    if (txt.Text == "title")
+                    {
+                        txt.Text = (lang == Languages.IT ? "Certificato di autenticità" : "Certificate of authenticy");
+                    }
+                     if (txt.Text == "name") {
+                         txt.Text = (lang == Languages.IT ? "Prodotto: " : "Product: ") + desc.Product;
+                     }
+                     else if (txt.Text == "desc")
+                     {
+                         txt.Text = (lang == Languages.IT ? desc[Languages.IT].Description : desc[Languages.EN].Description);
+                     }
+                     else if (txt.Text == "material")
+                     {
+                         txt.Text = (lang == Languages.IT ? "Materiale: " : "Materials: ");
+                     }
+                     else if (txt.Text == "serial")
+                     {
+                         txt.Text = (lang == Languages.IT ? "Numero di serie : " : "Serial number: ") + desc.SerialNumber;
+                     }
+                     else if (txt.Text == "date")
+                     {
+                         txt.Text = (lang == Languages.IT ? "Data di consegna: " : "Delivery date: " )+ desc.deliveryDate.ToShortDateString();
+                     }
+                     else if (txt.Text == "customer")
+                     {
+                         txt.Text = (lang == Languages.IT ? "Nome Cliente: ":"Customer Name: ") + desc.Customer;
+                     }
+                     else if (txt.Text == "vendor")
+                     {
+                         txt.Text = (lang == Languages.IT ? "Nome rivenditore ":" Vendor name: ") + desc.Vendor;
+                     }
                 }
 
-                outDoc.AddMainDocumentPart();
-                MainDocumentPart outPart1 = template.MainDocumentPart;
-                MainDocumentPart outPart2 = outDoc.MainDocumentPart;
-                using (StreamReader streamReader = new StreamReader(outPart1.GetStream()))
-                using (StreamWriter streamWriter = new StreamWriter(outPart2.GetStream(FileMode.Create)))
-                {
-                    streamWriter.Write(streamReader.ReadToEnd());
+                if (desc.Photo != null)
+                { 
+                    ImagePart imagePart = outDoc.MainDocumentPart.AddImagePart(ImagePartType.Jpeg); 
+                    imagePart.FeedData(File.Open(desc.PhotoPath,FileMode.Open));
+                    //Blip blip = outDoc.MainDocumentPart.Document.Descendants<Blip>().First();
+                    //blip.Embed = "rId102";
+                    outDoc.MainDocumentPart.Document.Save();
                 }
-
-               /* XmlDocument xmldocument = new XmlDocument();
-                xmldocument.LoadXml(outDoc.MainDocumentPart.Document.OuterXml);
-
-                XmlNodeList nodelist = xmldocument.GetElementsByTagName("w:t");
-                foreach (System.Xml.XmlNode node in nodelist)
-                {
-                     if (node.FirstChild.Value == "names") {
-                        node.ReplaceChild(xmldocument.CreateTextNode(desc.Product), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "desc-it")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode(desc[Languages.IT].Description), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "desc-en")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode(desc[Languages.EN].Description), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "material")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode("Materiale/Materials"), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "serial")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode("Numero di serie / Serial number: " + desc.SerialNumber), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "date")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode("Data di consegna / Delivery date: " + desc.deliveryDate.ToShortDateString()), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "customer")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode("Nome Cliente / Customer Name: " + desc.Customer), node.FirstChild);
-                     }
-                     else if (node.FirstChild.Value == "vendor")
-                     {
-                         node.ReplaceChild(xmldocument.CreateTextNode("Nome rivenditore / Vendor name: " + desc.Vendor), node.FirstChild);
-                     }
-
-                }
-
-                nodelist = xmldocument.GetElementsByTagName("w:document");
-
-                outDoc.MainDocumentPart.Document = new Document(xmldocument.LastChild.OuterXml);
-                outDoc.MainDocumentPart.Document.Save();*/
+                //outDoc.MainDocumentPart.Document.MainDocumentPart.AddImagePart(ImagePartType.Bmp);
             }
 
             // open word and show the file
             try
             {
                 Process myProcess = new Process();
-                myProcess.StartInfo.FileName = agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "//" + desc.Product + ".docx";
+                myProcess.StartInfo.FileName = agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "//" + desc.Product + "-Certificate.docx";
                 myProcess.StartInfo.Verb = "Open";
                 myProcess.StartInfo.CreateNoWindow = true;
                 myProcess.Start();

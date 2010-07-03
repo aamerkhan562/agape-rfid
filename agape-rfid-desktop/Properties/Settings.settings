@@ -17,7 +17,7 @@
       <Value Profile="(Default)">Data Source=santam.dyndns.org\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape</Value>
     </Setting>
     <Setting Name="templatePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop\temp.docx</Value>
+      <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop</Value>
     </Setting>
     <Setting Name="outputWordFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Documents and Settings\User\Desktop</Value>

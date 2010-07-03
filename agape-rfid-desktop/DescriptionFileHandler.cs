@@ -28,7 +28,7 @@ namespace agape_rfid_desktop
             String content = stream.ReadToEnd();
             String[] splitted = content.Split(new string[] { "[","]\r\n","\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             
-            for (int i = 0; i < splitted.Length; i++)
+            for (int i = 0; i < splitted.Length - 1; i++)
             {
                 if (splitted[i] == agape_rfid_desktop.Properties.Resources.descIT) 
                 {

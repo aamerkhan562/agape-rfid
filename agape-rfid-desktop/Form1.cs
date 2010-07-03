@@ -63,21 +63,14 @@ namespace agape_rfid_desktop
             {
                 this.tabPane.Visible = true;
 
-                watcher.EnableRaisingEvents = false;
-                watcher.Filter = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt";
-
                 this.saveBtn.Enabled = false;
                 modified = false;
-                isDescriptionLoaded = false;
 
-                // load details
-                details = new ItemDescription();
-                details.Product = this.descTxt.Text;
-                details.SerialNumber = this.idTxt.Text;
-                details.deliveryDate = this.datePicker.Value;
-                details.Customer = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.AnagraficaClienteColumn] + "";
-                details.Customer = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.AnagraficaRivenditoreColumn] + "";
+                updateDetails();
+                loadField();
 
+                watcher.EnableRaisingEvents = false;
+                watcher.Filter = details.CodArt + ".txt";
 
                 tabPane.SelectedIndex = 0;
             }
@@ -111,30 +104,20 @@ namespace agape_rfid_desktop
                 // load product-related description files
                 if (!isDescriptionLoaded)
                 {
-                    try
+                    DialogResult res = MessageBox.Show("File di descrizione non trovato. Crearlo ora?","File non trovato",MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
                     {
-                        updateDetails();
-                        loadField();
+                        System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.templatePath + "\\temp.txt", agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + this.codartTxt.Text + ".txt");
+                        loadDescriptionFile();
                     }
-                    catch (IOException) 
-                    {
-                        System.Windows.Forms.MessageBox.Show(this,"File di descrizione non trovato");
-                        this.detailsBtn.Enabled = false;
-                        isDescriptionLoaded = true;
-                        loadField();
-                    }
+                    isDescriptionLoaded = true;
                 }
             }
         }
 
         private void detailsBtn_Click(object sender, EventArgs e)
         {
-            FileInfo file = new FileInfo(agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
-            if (file.Exists)
-            {
-                System.Diagnostics.Process.Start(file.FullName);
-                watcher.EnableRaisingEvents = true;
-            }
+            loadDescriptionFile();
         }
 
         // se cambio il campo, update details
@@ -232,13 +215,35 @@ namespace agape_rfid_desktop
             this.modified = false;
 
             // load changes on db
-            AGAPE_RFID_TTableAdapter.Update(agapeTaggedItemsDS.AGAPE_RFID_T); // on merc??
+            AGAPE_RFID_TTableAdapter.Update(agapeTaggedItemsDS.AGAPE_RFID_T);
+
+            //
+            updateDetails();
+            loadField();
+
+            watcher.EnableRaisingEvents = false;
+            watcher.Filter = details.CodArt + ".txt";
         }
 
         private void updateDetails() {
-            handler.loadItemDescription(details,agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
-            details.PhotoPath = agape_rfid_desktop.Properties.Settings.Default.photoPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".png";
-            isDescriptionLoaded = true;
+            details = new ItemDescription();
+            details.CodArt = this.codartTxt.Text;
+            details.Product = this.descTxt.Text;
+            details.SerialNumber = this.idTxt.Text;
+            details.deliveryDate = this.datePicker.Value;
+            details.Customer = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.AnagraficaClienteColumn] + "";
+            details.Vendor = agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.AnagraficaRivenditoreColumn] + "";
+            try
+            {
+                handler.loadItemDescription(details, agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
+                isDescriptionLoaded = true;
+            }
+            catch (Exception)
+            {
+                isDescriptionLoaded = false;
+            }
+
+           // details.PhotoPath = agape_rfid_desktop.Properties.Settings.Default.photoPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".jpg";
         }
 
         private Boolean notifyUnsavedChangesAndUpdate()
@@ -293,5 +298,14 @@ namespace agape_rfid_desktop
             }
         }
 
+        private void loadDescriptionFile()
+        {
+            FileInfo file = new FileInfo(agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + agapeTaggedItemsDS.AGAPE_RFID_T.Rows[0][agapeTaggedItemsDS.AGAPE_RFID_T.CodArtColumn] + ".txt");
+            if (file.Exists)
+            {
+                System.Diagnostics.Process.Start(file.FullName);
+                watcher.EnableRaisingEvents = true;
+            }
+        }
     }
 }

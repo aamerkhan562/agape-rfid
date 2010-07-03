@@ -9,6 +9,11 @@ namespace agape_rfid_desktop
 {
     class ItemDescription
     {
+        public String CodArt
+        {
+            get;
+            set;
+        }
         public String Product
         {
             get;
