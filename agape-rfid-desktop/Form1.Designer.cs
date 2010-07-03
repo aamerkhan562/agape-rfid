@@ -557,6 +557,7 @@ namespace agape_rfid_desktop
             this.printBtn.TabIndex = 1;
             this.printBtn.Text = "Stampa";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // groupBox2
             // 

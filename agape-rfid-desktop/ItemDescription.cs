@@ -9,6 +9,36 @@ namespace agape_rfid_desktop
 {
     class ItemDescription
     {
+        public String Product
+        {
+            get;
+            set;
+        }
+
+        public String SerialNumber
+        {
+            get;
+            set;
+        }
+
+        public String Customer
+        {
+            get;
+            set;
+        }
+
+        public String Vendor
+        {
+            get;
+            set;
+        }
+
+        public DateTime deliveryDate
+        {
+            get;
+            set;
+        }
+
         private LocalizedDetails[] details = new LocalizedDetails[2];
 
         private Bitmap photo;
