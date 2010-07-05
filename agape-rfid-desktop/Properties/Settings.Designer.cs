@@ -60,19 +60,6 @@ namespace agape_rfid_desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Documenti\\Visual Studio 2008\\Projects\\agape-rfid\\a" +
-            "gape-rfid-desktop")]
-        public string templatePath {
-            get {
-                return ((string)(this["templatePath"]));
-            }
-            set {
-                this["templatePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Desktop")]
         public string outputWordFilePath {
             get {
@@ -80,6 +67,32 @@ namespace agape_rfid_desktop.Properties {
             }
             set {
                 this["outputWordFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Documenti\\Visual Studio 2008\\Projects\\agape-rfid\\a" +
+            "gape-rfid-desktop\\desc.txt")]
+        public string descTemplatePath {
+            get {
+                return ((string)(this["descTemplatePath"]));
+            }
+            set {
+                this["descTemplatePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Documents and Settings\\User\\Documenti\\Visual Studio 2008\\Projects\\agape-rfid\\a" +
+            "gape-rfid-desktop\\cert.docx")]
+        public string certTemplatePath {
+            get {
+                return ((string)(this["certTemplatePath"]));
+            }
+            set {
+                this["certTemplatePath"] = value;
             }
         }
     }

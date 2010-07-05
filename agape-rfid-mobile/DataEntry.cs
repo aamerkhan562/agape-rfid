@@ -34,9 +34,9 @@ namespace agape_rfid_mobile
         private static string keyANFCMAD = "A0A1A2A3A4A5";
         private static string keyANFCNDEF = "D3F7D3F7D3F7";
         private static string keyA = "FFFFFFFFFFFF";
-        private static string keyB = "111111111111";
+        private static string keyB = "111111111111";//73636D333630
         private static string acsStandard = "FF078069";
-        private static string acsWriteProtected = "78778800";
+        private static string acsWriteProtected = "78778840";
 
         public DataEntry(agapeDataSet.AGAPE_RFIDRow row, DateTime exitDate, Scan scanForm)
         {
@@ -105,7 +105,7 @@ namespace agape_rfid_mobile
         private void startProcess()
         {
             status = Status.ReadUid;
-            preparedData = prepareData("porcoilmondochecciosottoipiedi.it/index.asp&artNum=10");
+            preparedData = prepareData("aaaaaaaa.it/index.asp&artNum=10");
             progressBar1.Maximum = preparedData.Length;
             progressBar1.Value = 0;
             currentRetries = 0;
@@ -141,7 +141,7 @@ namespace agape_rfid_mobile
                 nfcData[i * 4 + j] = keyANFCNDEF + acsWriteProtected + keyB;
             }
 
-            string[] madData = NFCStandarForMifare.encodeMAD(keyB, nfcData.Length);
+            string[] madData = NFCStandarForMifare.encodeMAD(keyB,nfcData.Length);
 
             string[] data = new string[nfcData.Length + madData.Length];
 
@@ -226,7 +226,7 @@ namespace agape_rfid_mobile
             {
                 if (data != null && data == "OK")
                 {
-                    if (currentBlock == 19)
+                    if (currentBlock == 60)
                     {
                         ATHF_DLL_NET.C_HFHost.PlaySuccess();
                         return;

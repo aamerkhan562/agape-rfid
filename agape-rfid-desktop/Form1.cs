@@ -107,7 +107,7 @@ namespace agape_rfid_desktop
                     DialogResult res = MessageBox.Show("File di descrizione non trovato. Crearlo ora?","File non trovato",MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes)
                     {
-                        System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.templatePath + "\\temp.txt", agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + this.codartTxt.Text + ".txt");
+                        System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.descTemplatePath, agape_rfid_desktop.Properties.Settings.Default.productDescriptionDataPath + "\\" + this.codartTxt.Text + ".txt");
                         loadDescriptionFile();
                     }
                     isDescriptionLoaded = true;

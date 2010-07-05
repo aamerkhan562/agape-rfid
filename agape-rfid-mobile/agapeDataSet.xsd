@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=192.2.0.200\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape" IsAppSettingsProperty="false" Modifier="Assembly" Name="agapeConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=192.168.1.4\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape" IsAppSettingsProperty="false" Modifier="Assembly" Name="agapeConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AGAPE_RFIDTableAdapter" GeneratorDataComponentClassName="AGAPE_RFIDTableAdapter" Name="AGAPE_RFID" UserDataComponentName="AGAPE_RFIDTableAdapter">

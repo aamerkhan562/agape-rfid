@@ -16,11 +16,14 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=192.168.1.12\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape</Value>
     </Setting>
-    <Setting Name="templatePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop</Value>
-    </Setting>
     <Setting Name="outputWordFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Documents and Settings\User\Desktop</Value>
+    </Setting>
+    <Setting Name="descTemplatePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop\desc.txt</Value>
+    </Setting>
+    <Setting Name="certTemplatePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop\cert.docx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

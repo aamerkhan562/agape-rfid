@@ -16,7 +16,6 @@ namespace agape_rfid_mobile
         private const byte FLAG_L_3_BYTES = 0xFF;
         private const int MAX_L = 65534;//FFFEs
 
-        private const int SZ_SECTOR_MIF1K = 48;
         private const byte AID_1 = 0x03;
         private const byte AID_2 = 0xE1;
 
@@ -40,8 +39,12 @@ namespace agape_rfid_mobile
             return crc;
         }
 
-        public static String[] encodeMAD(string KeyB, int length)
+        public static String[] encodeMAD(string KeyB, int dataLength)
         {
+            int nb_sectors = dataLength/3;
+            if(dataLength%3>0)
+                dataLength++;
+
             byte[] mad_array = new byte[32];
             for (int i = 0; i < 32; i++)
                 mad_array[i] = 0;
@@ -50,11 +53,6 @@ namespace agape_rfid_mobile
             byte[] crc_array = new byte[30];
             for (int i = 0; i < 30; i++)
                 crc_array[i] = 0;
-
-            // how many sectors ?!
-            int nb_sectors = (int)(length  / SZ_SECTOR_MIF1K);
-            if (length % SZ_SECTOR_MIF1K > 0)
-                nb_sectors++;
 
             for (int i = 0; i < nb_sectors; i++)
             {
@@ -75,7 +73,7 @@ namespace agape_rfid_mobile
             string[] madData = new string[3];
             madData[0] = tmp.Substring(0, 32);
             madData[1] = tmp.Substring(32, 32);
-            madData[2] = "A0A1A2A3A4A5" + "78778800" + KeyB;
+            madData[2] = "A0A1A2A3A4A5" + "787788C1" + KeyB;
 
             return madData;
 

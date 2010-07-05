@@ -34,7 +34,7 @@ namespace agape_rfid_desktop
 
         public static void createCertificate(ItemDescription desc, Languages lang)
         {
-            System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.templatePath + "\\temp.docx", agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "\\" + desc.Product + "-Certificate.docx", true);
+            System.IO.File.Copy(agape_rfid_desktop.Properties.Settings.Default.certTemplatePath, agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "\\" + desc.Product + "-Certificate.docx", true);
             using (WordprocessingDocument outDoc = WordprocessingDocument.Open(agape_rfid_desktop.Properties.Settings.Default.outputWordFilePath + "\\" + desc.Product + "-Certificate.docx",true))
             {
                 List<DocumentFormat.OpenXml.Wordprocessing.Text> nodes = new List<DocumentFormat.OpenXml.Wordprocessing.Text>();

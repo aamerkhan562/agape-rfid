@@ -35,11 +35,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cancButton = new System.Windows.Forms.Button();
             this.txtData = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.taggedItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.destDataSet = new agape_rfid_mobile.destDataSet();
             this.AGAPE_RFID_TTableAdapter1 = new agape_rfid_mobile.destDataSetTableAdapters.AGAPE_RFID_TTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.taggedItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destDataSet)).BeginInit();
             this.SuspendLayout();
@@ -94,21 +94,6 @@
             this.txtData.Size = new System.Drawing.Size(49, 23);
             this.txtData.TabIndex = 11;
             // 
-            // taggedItemsBindingSource
-            // 
-            this.taggedItemsBindingSource.DataMember = "AGAPE_RFID_T";
-            this.taggedItemsBindingSource.DataSource = this.destDataSet;
-            // 
-            // destDataSet
-            // 
-            this.destDataSet.DataSetName = "destDataSet";
-            this.destDataSet.Prefix = "";
-            this.destDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // AGAPE_RFID_TTableAdapter1
-            // 
-            this.AGAPE_RFID_TTableAdapter1.ClearBeforeFill = true;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(186, 225);
@@ -124,6 +109,21 @@
             this.messageLabel.Location = new System.Drawing.Point(3, 72);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(232, 20);
+            // 
+            // taggedItemsBindingSource
+            // 
+            this.taggedItemsBindingSource.DataMember = "AGAPE_RFID_T";
+            this.taggedItemsBindingSource.DataSource = this.destDataSet;
+            // 
+            // destDataSet
+            // 
+            this.destDataSet.DataSetName = "destDataSet";
+            this.destDataSet.Prefix = "";
+            this.destDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // AGAPE_RFID_TTableAdapter1
+            // 
+            this.AGAPE_RFID_TTableAdapter1.ClearBeforeFill = true;
             // 
             // DataEntry
             // 

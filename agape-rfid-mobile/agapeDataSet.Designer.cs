@@ -1025,7 +1025,7 @@ SELECT NumeroOrdine, DataOrdine, ProgressivoArticolo, CodArt, DescrizioneArticol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.2.0.200\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=a" +
+            this._connection.ConnectionString = "Data Source=192.168.1.4\\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=a" +
                 "gape;";
         }
         
