@@ -11,10 +11,10 @@
     <Setting Name="agapeConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=santam.dyndns.org\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.1.12\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=santam.dyndns.org\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape</Value>
+      <Value Profile="(Default)">Data Source=192.168.1.12\SQLEXPRESS;Initial Catalog=agape;User ID=agape;Password=agape</Value>
     </Setting>
     <Setting Name="templatePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Documents and Settings\User\Documenti\Visual Studio 2008\Projects\agape-rfid\agape-rfid-desktop</Value>

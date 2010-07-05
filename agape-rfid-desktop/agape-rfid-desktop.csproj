@@ -79,7 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>agapeTaggedItemsDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AMerc.cs" />
     <Compile Include="CertificateHandler.cs" />
     <Compile Include="DescriptionFileHandler.cs" />
     <Compile Include="ItemDescription.cs" />

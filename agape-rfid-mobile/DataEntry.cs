@@ -141,7 +141,7 @@ namespace agape_rfid_mobile
                 nfcData[i * 4 + j] = keyANFCNDEF + acsWriteProtected + keyB;
             }
 
-            string[] madData = NFCStandarForMifare.encodeMAD(keyB);
+            string[] madData = NFCStandarForMifare.encodeMAD(keyB, nfcData.Length);
 
             string[] data = new string[nfcData.Length + madData.Length];
 

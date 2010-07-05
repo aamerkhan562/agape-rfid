@@ -16,6 +16,7 @@ namespace agape_rfid_mobile
         private const byte FLAG_L_3_BYTES = 0xFF;
         private const int MAX_L = 65534;//FFFEs
 
+        private const int SZ_SECTOR_MIF1K = 48;
         private const byte AID_1 = 0x03;
         private const byte AID_2 = 0xE1;
 
@@ -39,7 +40,7 @@ namespace agape_rfid_mobile
             return crc;
         }
 
-        public static String[] encodeMAD(string KeyB)
+        public static String[] encodeMAD(string KeyB, int length)
         {
             byte[] mad_array = new byte[32];
             for (int i = 0; i < 32; i++)
@@ -50,7 +51,12 @@ namespace agape_rfid_mobile
             for (int i = 0; i < 30; i++)
                 crc_array[i] = 0;
 
-            for (int i = 0; i < 7; i++)
+            // how many sectors ?!
+            int nb_sectors = (int)(length  / SZ_SECTOR_MIF1K);
+            if (length % SZ_SECTOR_MIF1K > 0)
+                nb_sectors++;
+
+            for (int i = 0; i < nb_sectors; i++)
             {
                 crc_array[offset_crc] = AID_1;
                 mad_array[offset_mad] = AID_1;
