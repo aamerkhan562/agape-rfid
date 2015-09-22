@@ -1,0 +1,1 @@
+quality certificate of products with RFID tag
